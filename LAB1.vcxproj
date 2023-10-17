@@ -131,10 +131,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pointClass.cpp" />
     <ClCompile Include="roadClass.cpp" />
+    <ClCompile Include="vehicleClass.cpp" />
+    <ClCompile Include="vehicleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pointClass.h" />
     <ClInclude Include="roadClass.h" />
+    <ClInclude Include="vehicleClass.h" />
+    <ClInclude Include="vehicleManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,62 @@
+﻿  main.cpp
+L:\shoto\LABS\sem3\OOP_Projects\main.cpp(10,20): error C2061: синтаксическая ошибка: идентификатор "Vehicle"
+  pointClass.cpp
+  roadClass.cpp
+  vehicleClass.cpp
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(7,8): error C3646: vehicleRoad: неизвестный спецификатор переопределения
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(7,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(15,8): error C3646: getVehicleRoad: неизвестный спецификатор переопределения
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(15,22): error C2059: синтаксическая ошибка: (
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(15,24): error C2238: непредвиденные лексемы перед ";"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(16,23): error C2061: синтаксическая ошибка: идентификатор "Road"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.cpp(17,15): error C2039: "getVehicleRoad": не является членом "vehicle".
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(4,7): message : см. объявление "vehicle"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.cpp(18,9): error C2355: "this": может указываться только в нестатических членах-функциях или инициализаторах нестатических членов данных
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.cpp(21,15): error C2511: void vehicle::setVehicleRoad(Road): перегруженная функция-член не найдена в "vehicle"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.h(4,7): message : см. объявление "vehicle"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleClass.cpp(22,2): error C2671: vehicle::setVehicleRoad: статические функции-члены не имеют указателей "this"
+  vehicleManager.cpp
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(32,17): error C2065: Vehicle: необъявленный идентификатор
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(32,10): error C2923: std::vector: "Vehicle" не является допустимым аргументом типа шаблон для параметра "_Ty"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(32,17): message : см. объявление "Vehicle"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(32,10): error C2976: std::vector: слишком мало аргументов шаблон
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(438,1): message : см. объявление "std::vector"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(7,19): error C2512: std::vector: нет подходящего конструктора по умолчанию
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(438,1): message : см. объявление "std::vector"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(16,28): error C3861: Vehicle: идентификатор не найден
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(20,43): error C2662: allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type std::vector<_Ty,_Alloc>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector" в "const std::vector<_Ty,_Alloc> &"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(20,35): message : Причина: невозможно преобразовать "std::vector" в "const std::vector<_Ty,_Alloc>"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(20,35): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1867,39): message : см. объявление "std::vector<_Ty,_Alloc>::size"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(20,43): message : при попытке сопоставить список аргументов "()"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,36): error C2663: "std::vector<_Ty,_Alloc>::begin": нет перегруженной функции с допустимым преобразованием для указателя "this"
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1799,44): message : может быть "std::_Vector_const_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::begin(void) noexcept const"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,36): message : std::_Vector_const_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::begin(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector" в "const std::vector<_Ty,_Alloc> &"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,28): message : Причина: невозможно преобразовать "std::vector" в "const std::vector<_Ty,_Alloc>"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,28): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1794,38): message : или       "std::_Vector_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::begin(void) noexcept"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,36): message : std::_Vector_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::begin(void) noexcept: невозможно преобразовать указатель "this" из "std::vector" в "std::vector<_Ty,_Alloc> &"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,28): message : Причина: невозможно преобразовать "std::vector" в "std::vector<_Ty,_Alloc>"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,28): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,36): message : при попытке сопоставить список аргументов "()"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,45): error C2088: +: недопустимо для class
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,21): error C2663: "std::vector<_Ty,_Alloc>::erase": нет перегруженной функции с допустимым преобразованием для указателя "this"
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1716,27): message : может быть "std::_Vector_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::erase(std::_Vector_const_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>>) noexcept(<expr>)"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,21): message : std::_Vector_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>> std::vector<_Ty,_Alloc>::erase(std::_Vector_const_iterator<std::_Vector_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Alloc>::rebind_alloc<_Ty>>,std::_Simple_types<_Value_type>,std::_Vec_iter_types<_Ty,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::difference_type,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::pointer,allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::const_pointer,_Ty&,const _Ty&>>::type>>) noexcept(<expr>): невозможно преобразовать указатель "this" из "std::vector" в "std::vector<_Ty,_Alloc> &"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,13): message : Причина: невозможно преобразовать "std::vector" в "std::vector<_Ty,_Alloc>"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,13): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(21,21): message : при попытке сопоставить список аргументов "()"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(26,37): error C2662: allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type std::vector<_Ty,_Alloc>::size(void) noexcept const: невозможно преобразовать указатель "this" из "std::vector" в "const std::vector<_Ty,_Alloc> &"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(26,29): message : Причина: невозможно преобразовать "std::vector" в "const std::vector<_Ty,_Alloc>"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(26,29): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1867,39): message : см. объявление "std::vector<_Ty,_Alloc>::size"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(26,37): message : при попытке сопоставить список аргументов "()"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(27,53): error C2678: бинарный "[": не найден оператор, принимающий левый операнд типа "std::vector" (или приемлемое преобразование отсутствует)
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1892,40): message : может быть "const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const"
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1882,34): message : или       "_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(27,53): message : при попытке сопоставить список аргументов "(std::vector, int)"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(27,80): error C2678: бинарный "[": не найден оператор, принимающий левый операнд типа "std::vector" (или приемлемое преобразование отсутствует)
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1892,40): message : может быть "const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const"
+I:\VS\VC\Tools\MSVC\14.37.32822\include\vector(1882,34): message : или       "_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept"
+L:\shoto\LABS\sem3\OOP_Projects\vehicleManager.h(27,80): message : при попытке сопоставить список аргументов "(std::vector, int)"
+  Создание кода...

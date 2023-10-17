@@ -6,7 +6,9 @@ class Road {
 		int roadId;
 		Point roadStartPoint, roadEndPoint;
 		double roadSpeedLimit;
-	public: 
+
+	public:
+		Road();
 		Road(Point roadStart, Point roadEnd, double roadSpeed);
 		~Road();
 };

@@ -14,6 +14,12 @@
     <Filter Include="Classes\roadClass">
       <UniqueIdentifier>{843679e7-6225-4e09-8602-5647b2c52037}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\vehicleClass">
+      <UniqueIdentifier>{dbc002bc-0ce6-4422-8bf6-0b90b8861c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\vehicleManagerClass">
+      <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,6 +31,12 @@
     <ClCompile Include="pointClass.cpp">
       <Filter>Classes\pointClass</Filter>
     </ClCompile>
+    <ClCompile Include="vehicleManager.cpp">
+      <Filter>Classes\vehicleManagerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicleClass.cpp">
+      <Filter>Classes\vehicleClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="roadClass.h">
@@ -32,6 +44,12 @@
     </ClInclude>
     <ClInclude Include="pointClass.h">
       <Filter>Classes\pointClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleManager.h">
+      <Filter>Classes\vehicleManagerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleClass.h">
+      <Filter>Classes\vehicleClass</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
