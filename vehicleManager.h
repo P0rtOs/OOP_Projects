@@ -7,12 +7,12 @@ class VehicleManager {
     public:
         VehicleManager();
         ~VehicleManager();
-        void addVehicle(const std::string& make, const std::string& model);
+        void addVehicle(int id, Road road, std::string type);
         void removeVehicle(int index);
-        void printVehicles();
+        void printVehiclesList();
 
 
     private:
-        //std::vector<> vehicles;
+        std::vector<Vehicle> vehicles;
 };
 

@@ -1,22 +1,17 @@
 #include "vehicleManager.h"
-#include "vehicleClass.h"
 
-void VehicleManager::addVehicle(const std::string& make, const std::string& model) {
-    vehicles.push_back(Vehicle(make, model));
+void VehicleManager::addVehicle(int id, Road road, std::string type) {
+    vehicles.push_back(Vehicle(id, road, type));
 }
 
-void VehicleManager::addVehicle(const std::string& make, const std::string& model) {
-    vehicles.push_back(Vehicle(make, model));
-}
-
-void VehicleManager::removeVehicle(int index) {
-    if (index >= 0 && index < vehicles.size()) {
-        vehicles.erase(vehicles.begin() + index);
+void VehicleManager::removeVehicle(int id) {
+    if (id >= 0 && id < vehicles.size()) {
+        vehicles.erase(vehicles.begin() + id);
     }
 }
 
-void VehicleManager::printVehicles() {
+void VehicleManager::printVehiclesList() {
     for (int i = 0; i < vehicles.size(); ++i) {
-        std::cout << "Vehicle " << i << ": " << vehicles[i].make << " " << vehicles[i].model << std::endl;
+        std::cout << "Vehicle " << i << ": " << vehicles[i].getVehicleId() << " " << vehicles[i].getVehicleType() << std::endl;
     }
 }

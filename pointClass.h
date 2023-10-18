@@ -7,6 +7,7 @@ class Point {
 
 	public:
 		Point();
+		Point(int pointId, double pointX, double pointY);
 		~Point();
 		int getPointId();
 		double getPointX();

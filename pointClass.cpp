@@ -5,6 +5,10 @@ Point::Point() {
 	std::cout << "Point created.";
 }
 
+Point::Point(int pointId, double pointX, double pointY) {
+	std::cout << "Point created.";
+}
+
 Point::~Point() {
 	std::cout << "Point deleted";
 }

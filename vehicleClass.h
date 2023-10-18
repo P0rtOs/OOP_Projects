@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "pointClass.h"
 #include "roadClass.h"
 
 class Vehicle {
@@ -12,6 +11,7 @@ class Vehicle {
 
 	public:
 		Vehicle();
+		Vehicle(int vehicleId, Road vehicleRoad, std::string vehicleType);
 		~Vehicle();
 		int getVehicleId();
 		Road getVehicleRoad();

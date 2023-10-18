@@ -20,6 +20,9 @@
     <Filter Include="Classes\vehicleManagerClass">
       <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Manager">
+      <UniqueIdentifier>{fb5ec57d-94a5-458e-86e6-8a36aa340fad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -37,6 +40,9 @@
     <ClCompile Include="vehicleClass.cpp">
       <Filter>Classes\vehicleClass</Filter>
     </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="roadClass.h">
@@ -50,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="vehicleClass.h">
       <Filter>Classes\vehicleClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Classes\Manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
