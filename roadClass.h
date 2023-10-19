@@ -8,7 +8,7 @@ class Road {
 		double roadSpeedLimit;
 
 	public:
-		Road();
+		Road() = default;
 		Road(Point roadStart, Point roadEnd, double roadSpeed);
 		~Road();
 };

@@ -22,6 +22,7 @@ void Manager::startTestSimulation() {
     Point testingPoint(1, 2, 3);
     Road testingRoad(testingPoint, testingPoint, 4);
     int i = 0;
+
     for (i; i <= 5; i++) {
         manager.addVehicle(i, testingRoad, "test");
     }

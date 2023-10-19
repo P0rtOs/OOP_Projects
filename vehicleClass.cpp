@@ -6,6 +6,10 @@ Vehicle::Vehicle() {
 	std::cout << "vehicle created" << std::endl;
 }
 
+Vehicle::Vehicle(int vehicleId, Road vehicleRoad, std::string vehicleType) {
+	std::cout << "vehicle created" << std::endl;
+}
+
 Vehicle::~Vehicle() {
 	std::cout << "vehicle deleated" << std::endl;
 }

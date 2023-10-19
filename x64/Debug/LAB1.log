@@ -1,8 +1,2 @@
-﻿  Manager.cpp
-  main.cpp
-  Создание кода...
-Manager.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl VehicleManager::VehicleManager(void)" (??0VehicleManager@@QEAA@XZ) в функции "public: void __cdecl Manager::startTestSimulation(void)" (?startTestSimulation@Manager@@QEAAXXZ).
-Manager.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl VehicleManager::~VehicleManager(void)" (??1VehicleManager@@QEAA@XZ) в функции "public: void __cdecl Manager::startTestSimulation(void)" (?startTestSimulation@Manager@@QEAAXXZ).
-vehicleClass.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Road::Road(void)" (??0Road@@QEAA@XZ) в функции "public: __cdecl Vehicle::Vehicle(void)" (??0Vehicle@@QEAA@XZ).
-vehicleManager.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Vehicle::Vehicle(int,class Road,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0Vehicle@@QEAA@HVRoad@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) в функции "public: void __cdecl VehicleManager::addVehicle(int,class Road,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?addVehicle@VehicleManager@@QEAAXHVRoad@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z).
-L:\shoto\LABS\sem3\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe : fatal error LNK1120: неразрешенных внешних элементов: 4
+﻿  vehicleClass.cpp
+  LAB1.vcxproj -> L:\shoto\LABS\sem3\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe
