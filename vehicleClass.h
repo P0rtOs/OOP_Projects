@@ -15,7 +15,9 @@ class Vehicle {
 		~Vehicle();
 		int getVehicleId();
 		Road getVehicleRoad();
+		void setVehicleId(int Id);
 		void setVehicleRoad(Road thisRoad);
+		void setVehicleType(std::string vehicleType);
 		std::string getVehicleType();
 
 };

@@ -5,10 +5,10 @@ class Road {
 	private:
 		int roadId;
 		Point roadStartPoint, roadEndPoint;
-		double roadSpeedLimit;
+		int roadSpeedLimit;
 
 	public:
 		Road() = default;
-		Road(Point roadStart, Point roadEnd, double roadSpeed);
+		Road( Point& roadStart, Point& roadEnd, int& roadSpeed);
 		~Road();
 };

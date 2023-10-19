@@ -12,6 +12,7 @@ class Point {
 		int getPointId();
 		double getPointX();
 		double getPointY();
+		void setPointId(int Id);
 		void setPointX(double x);
 		void setPointY(double y);
 

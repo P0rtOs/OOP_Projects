@@ -19,8 +19,10 @@ void Manager::startTestSimulation() {
     VehicleManager manager; // Створення об'єкта класу VehicleManager
 
     // Додавання транспортного засобу за допомогою методу addVehicle
-    Point testingPoint(1, 2, 3);
-    Road testingRoad(testingPoint, testingPoint, 4);
+    Point startPoint(1, 2, 3);
+    Point endPoint(4, 5, 6);
+
+    Road testingRoad(startPoint, endPoint, 4);
     int i = 0;
 
     for (i; i <= 5; i++) {

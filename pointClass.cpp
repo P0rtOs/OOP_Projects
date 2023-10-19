@@ -7,6 +7,9 @@ Point::Point() {
 
 Point::Point(int pointId, double pointX, double pointY) {
 	std::cout << "Point created.";
+	this->setPointId(pointId);
+	this->setPointX(pointX);
+	this->setPointY(pointY);
 }
 
 Point::~Point() {
@@ -25,6 +28,9 @@ double Point::getPointY() {
 	return this->pointY;
 }
 
+void Point::setPointId(int Id) {
+	this->pointId = Id;
+}
 void Point::setPointX(double x) {
 	this->pointX = x;
 }
