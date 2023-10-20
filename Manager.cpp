@@ -1,11 +1,11 @@
 #include "Manager.h"
 
 Manager::Manager() {
-    std::cout << "Manager created" << std::endl;
+    std::cout << "Manager created. " << std::endl;
 }
 
 Manager::~Manager() {
-    std::cout << "Manager deleated" << std::endl;
+    std::cout << "Manager deleated. " << std::endl;
 }
 
 // Метод для розрахунку маршруту кожним окремим транспортним засобом
@@ -16,20 +16,28 @@ void Manager::planRoute(Vehicle vehicle, const Point destination, const std::vec
 
 // Метод для запуску симуляції руху
 void Manager::startTestSimulation() {
-    VehicleManager manager; // Створення об'єкта класу VehicleManager
+    VehicleManager* manager = new VehicleManager(); // Створення об'єкта класу VehicleManager
 
     // Додавання транспортного засобу за допомогою методу addVehicle
-    Point startPoint(1, 2, 3);
-    Point endPoint(4, 5, 6);
+    Point* startPoint = new Point(1, 2, 3);
+    Point* endPoint = new Point(4, 5, 6);
 
-    Road testingRoad(startPoint, endPoint, 4);
+    Road* testingRoad = new Road(*startPoint, *endPoint, 4);
     int i = 0;
 
-    for (i; i <= 5; i++) {
-        manager.addVehicle(i, testingRoad, "test");
-    }
+    //for (i; i <= 5; i++) {
+        manager->addVehicle(i, *testingRoad, "test");
+   // }
 
-    manager.printVehiclesList();
+
+
+    manager->printVehiclesList();
+
+    delete startPoint;
+    delete endPoint;
+    delete testingRoad;
+    delete manager;
+    
 }
 
 

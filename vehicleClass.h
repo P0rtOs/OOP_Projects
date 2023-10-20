@@ -5,18 +5,18 @@
 class Vehicle {
 	private:
 		int vehicleId;
-		Road vehicleRoad;
+		Road* vehicleRoad;
 		std::string vehicleType;
 	
 
 	public:
 		Vehicle();
-		Vehicle(int vehicleId, Road vehicleRoad, std::string vehicleType);
+		Vehicle(int vehicleId, Road& vehicleRoad, std::string vehicleType);
 		~Vehicle();
 		int getVehicleId();
-		Road getVehicleRoad();
+		Road* getVehicleRoad();
 		void setVehicleId(int Id);
-		void setVehicleRoad(Road thisRoad);
+		void setVehicleRoad(Road& thisRoad);
 		void setVehicleType(std::string vehicleType);
 		std::string getVehicleType();
 
