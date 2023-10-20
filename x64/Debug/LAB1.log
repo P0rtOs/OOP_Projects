@@ -1,5 +1,7 @@
-﻿  Manager.cpp
-L:\shoto\LABS\sem3\OOP_Projects\Manager.cpp(25,21): error C2665: "Road::Road": ни одна перегруженная функция не может преобразовать все типы аргументов
-L:\shoto\LABS\sem3\OOP_Projects\roadClass.h(12,3): message : может быть "Road::Road(Point &,Point &,int &)"
-L:\shoto\LABS\sem3\OOP_Projects\Manager.cpp(25,21): message : "Road::Road(Point &,Point &,int &)": невозможно преобразовать аргумент 3 из "int" в "int &"
-L:\shoto\LABS\sem3\OOP_Projects\Manager.cpp(25,21): message : при попытке сопоставить список аргументов "(Point, Point, int)"
+﻿  main.cpp
+  Manager.cpp
+  roadClass.cpp
+  vehicleClass.cpp
+  vehicleManager.cpp
+  Создание кода...
+  LAB1.vcxproj -> L:\shoto\LABS\sem3\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe

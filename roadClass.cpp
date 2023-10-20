@@ -1,7 +1,7 @@
 #include <iostream>
 #include "roadClass.h"
 
-Road::Road(Point& roadStartPoint, Point& roadEndPoint, int& roadSpeed) {
+Road::Road(Point& roadStartPoint, Point& roadEndPoint, int roadSpeed) {
     std::cout << "Road created from " << roadStartPoint.getPointId() << " to " << roadEndPoint.getPointId();
     this->roadSpeedLimit = roadSpeed;
     this->roadStartPoint = roadStartPoint;

@@ -9,6 +9,6 @@ class Road {
 
 	public:
 		Road() = default;
-		Road( Point& roadStart, Point& roadEnd, int& roadSpeed);
+		Road(Point& roadStartPoint, Point& roadEndPoint, int roadSpeed);
 		~Road();
 };
