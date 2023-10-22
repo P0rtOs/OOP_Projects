@@ -1,7 +1,7 @@
 #include "vehicleManager.h"
 
 void VehicleManager::addVehicle(int id, Road& road, std::string type) {
-    vehicles.push_back(Vehicle(id, road, type));
+    vehicles.emplace_back(id, road, type);
 }
 
 

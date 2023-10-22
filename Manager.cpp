@@ -29,7 +29,7 @@ void Manager::startTestSimulation() {
         manager->addVehicle(i, *testingRoad, "test");
    // }
 
-
+        std::cout << "all DONE" << std::endl << std::endl;
 
     manager->printVehiclesList();
 
