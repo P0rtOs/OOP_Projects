@@ -38,3 +38,7 @@ void Point::setPointX(double x) {
 void Point::setPointY(double y) {
 	this->pointY = y;
 }
+
+void Point::addNeighbor(int neighborId) {
+	neighbors.push_back(neighborId);
+}

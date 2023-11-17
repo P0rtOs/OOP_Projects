@@ -42,6 +42,10 @@ std::string Vehicle::getVehicleType() {
 	return this->vehicleType;
 }
 
+void Vehicle::setVehiclePoint(int newPointId) {
+	currentPointId = newPointId;
+}
+
 
 Car::Car() : numberOfDoors(4) {}
 Car::Car(int vehicleId, Road& vehicleRoad, std::string vehicleType, int doors)

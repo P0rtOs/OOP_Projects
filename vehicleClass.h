@@ -8,7 +8,7 @@ class Vehicle {
 		int vehicleId;
 		Road* vehicleRoad;
 		std::string vehicleType;
-	
+        int currentPointId;
 
 	public:
 		Vehicle();
@@ -19,6 +19,7 @@ class Vehicle {
 		void setVehicleId(int Id);
 		void setVehicleRoad(Road& thisRoad);
 		void setVehicleType(std::string vehicleType);
+        void setVehiclePoint(int newPointId);
 		std::string getVehicleType();
 
 };

@@ -1,5 +1,7 @@
-﻿  main.cpp
-  Manager.cpp
+﻿  Manager.cpp
+  main.cpp
+  pointClass.cpp
+  roadClass.cpp
   vehicleClass.cpp
   vehicleManager.cpp
   Создание кода...

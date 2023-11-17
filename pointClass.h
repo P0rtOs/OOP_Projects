@@ -1,9 +1,11 @@
 #pragma once
+#include <vector>
 
 class Point {
 	private:
 		int pointId;
 		double pointX, pointY;
+		std::vector<int> neighbors;
 
 	public:
 		Point();
@@ -15,5 +17,6 @@ class Point {
 		void setPointId(int Id);
 		void setPointX(double x);
 		void setPointY(double y);
+		void addNeighbor(int neighborId);
 
 };
