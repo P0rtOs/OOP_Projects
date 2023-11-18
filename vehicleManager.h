@@ -8,7 +8,7 @@ class VehicleManager {
     public:
         VehicleManager() = default;
         ~VehicleManager() = default;
-        void addVehicle(int id, Road& road, std::string type);
+        void addVehicle(int id, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string type);
         void removeVehicle(int index);
         void printVehiclesList();
 

@@ -11,9 +11,6 @@
     <Filter Include="Classes\pointClass">
       <UniqueIdentifier>{1553a7df-8fd1-45c8-a973-6cd52a1f291a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\roadClass">
-      <UniqueIdentifier>{843679e7-6225-4e09-8602-5647b2c52037}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\vehicleClass">
       <UniqueIdentifier>{dbc002bc-0ce6-4422-8bf6-0b90b8861c94}</UniqueIdentifier>
     </Filter>
@@ -27,9 +24,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="roadClass.cpp">
-      <Filter>Classes\roadClass</Filter>
     </ClCompile>
     <ClCompile Include="pointClass.cpp">
       <Filter>Classes\pointClass</Filter>
@@ -45,9 +39,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="roadClass.h">
-      <Filter>Classes\roadClass</Filter>
-    </ClInclude>
     <ClInclude Include="pointClass.h">
       <Filter>Classes\pointClass</Filter>
     </ClInclude>

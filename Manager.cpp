@@ -22,11 +22,7 @@ void Manager::startTestSimulation() {
     Point* startPoint = new Point(1, 2, 3);
     Point* endPoint = new Point(4, 5, 6);
 
-    Road* testingRoad = new Road(*startPoint, *endPoint, 4);
-    int i = 0;
-
-    //for (i; i <= 5; i++) {
-        manager->addVehicle(i, *testingRoad, "test");
+    manager->addVehicle(1, startPoint->getPointId(), endPoint->getPointId(), "test");
    // }
 
         std::cout << "all DONE" << std::endl << std::endl;
@@ -35,7 +31,6 @@ void Manager::startTestSimulation() {
 
     delete startPoint;
     delete endPoint;
-    delete testingRoad;
     delete manager;
     
 }

@@ -1,25 +1,24 @@
 #pragma once
 #include <iostream>
-#include "roadClass.h"
+#include "pointClass.h"
 #include <vector>
 
 class Vehicle {
 	private:
 		int vehicleId;
-		Road* vehicleRoad;
 		std::string vehicleType;
         int currentPointId;
+        int goalPointId;
 
 	public:
 		Vehicle();
-		Vehicle(int vehicleId, Road& vehicleRoad, std::string vehicleType);
+		Vehicle(int vehicleId, int currentPointId, int goalPointId, std::string vehicleType);
 		~Vehicle();
 		int getVehicleId();
-		Road* getVehicleRoad();
 		void setVehicleId(int Id);
-		void setVehicleRoad(Road& thisRoad);
 		void setVehicleType(std::string vehicleType);
         void setVehiclePoint(int newPointId);
+        void setVehicleGoalPoint(int newGoalPointId);
 		std::string getVehicleType();
 
 };
@@ -30,7 +29,7 @@ private:
 
 public:
     Car();
-    Car(int vehicleId, Road& vehicleRoad, std::string vehicleType, int doors);
+    Car(int vehicleId, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string vehicleType, int doors);
     int getNumberOfDoors();
     void setNumberOfDoors(int doors);
 };
@@ -43,7 +42,7 @@ private:
 
 public:
     Truck();    //конструткор по стандарту для цілі вантажівки, можливо якийсь центр логістики
-    Truck(int vehicleId, Road& vehicleRoad, std::string vehicleType, Point point);
+    Truck(int vehicleId, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string vehicleType, Point point);
     Point getAim();
     void setAim(Point point);
 };
@@ -58,7 +57,7 @@ private:
 
 public:
     School_bus();
-    School_bus(int vehicleId, Road& vehicleRoad, std::string vehicleType, Point school_to_serve1, std::vector<Point> bus_stations_to_serve1);
+    School_bus(int vehicleId, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string vehicleType, Point school_to_serve1, std::vector<Point> bus_stations_to_serve1);
     Point getSchool();
     void setSchool(Point school_to_serve1);
     std::vector<Point> getbus_stations_to_serve();
