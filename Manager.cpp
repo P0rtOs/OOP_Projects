@@ -1,11 +1,17 @@
 #include "Manager.h"
+#include "vehicleFactory.h"
 
-Manager::Manager() {
+// TODO: Реализовать примерную UML диаграму, что должен каждый класс делать, по возможности упростить (уменьшить) количество классов. До сих пор не понимаю что делает Manager чего не может делать main
+
+
+Manager::Manager()
+{
     std::cout << "Manager created. " << std::endl;
 }
 
-Manager::~Manager() {
-    std::cout << "Manager deleated. " << std::endl;
+Manager::~Manager()
+{
+    std::cout << "Manager deleted. " << std::endl;
 }
 
 // Метод для розрахунку маршруту кожним окремим транспортним засобом
@@ -15,35 +21,38 @@ void Manager::planRoute(Vehicle vehicle, const Point destination, const std::vec
 }
 
 // Метод для запуску симуляції руху
-void Manager::startTestSimulation() {
-    VehicleManager* manager = new VehicleManager(); // Створення об'єкта класу VehicleManager
+void Manager::startTestSimulation()
+{
+
+    // TODO: Вписать тиккер клас в менеджер приложения, зарегистрировать всех обсерверов, которые должны тикаться
+    VehicleManager manager;
+    VehicleFactory factory;
 
     // Додавання транспортного засобу за допомогою методу addVehicle
-    Point* startPoint = new Point(1, 2, 3);
-    Point* endPoint = new Point(4, 5, 6);
+    Point *startPoint = new Point(1, 2, 3);
+    Point *endPoint = new Point(4, 5, 6);
 
-    manager->addVehicle(1, startPoint->getPointId(), endPoint->getPointId(), "test");
-   // }
+    Vehicle* car = factory.createVehicle(1, "Car");
+    Vehicle* truck = factory.createVehicle(1, "Truck");
 
-        std::cout << "all DONE" << std::endl << std::endl;
+    manager.addVehicle(car);
+    manager.addVehicle(truck);
+    // }
 
-    manager->printVehiclesList();
+    std::cout << "all DONE" << std::endl
+              << std::endl;
 
-    delete startPoint;
-    delete endPoint;
-    delete manager;
-    
+    // TODO: Очистка памяти - нету для менеджера, надо создать
 }
 
-
 // Метод для відстеження руху транспортних засобів
-void Manager::trackVehicleMovement() //метод для запису переміщень в файл, чи чогось подібного.
+void Manager::trackVehicleMovement() // метод для запису переміщень в файл, чи чогось подібного.
 {
-    // Логіка для відстеження руху
+    // TODO: Логіка для відстеження руху
 }
 
 // Метод для завершення симуляції
 void Manager::endSimulation()
 {
-    // Логіка для завершення симуляції
+    // TODO: Логіка для завершення симуляції
 }

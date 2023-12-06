@@ -1,7 +1,9 @@
 #include <iostream>
 #include "pointClass.h"
 
-Point::Point() {
+using std::vector;
+
+Point::Point() : pointId(-1)  {
 	std::cout << "Point created using default constuctor.\n";
 }
 
@@ -39,6 +41,12 @@ void Point::setPointY(double y) {
 	this->pointY = y;
 }
 
-void Point::addNeighbor(int neighborId) {
-	neighbors.push_back(neighborId);
+void Point::addNeighbor(int neighborId, int ticks = 3, double weightLimit = 10000) {
+	neighbors.emplace_back(neighborId);
 }
+
+const vector<Connection>& Point::getNeighbor() const {
+	return neighbors;
+}
+
+// TODO: ѕродумать, сколько тиков должна машина сто€ть в точке (и должна ли). Ќаписать разразнение типов точек (почта, дом, тд).
