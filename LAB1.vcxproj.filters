@@ -14,14 +14,26 @@
     <Filter Include="Classes\vehicleClass">
       <UniqueIdentifier>{dbc002bc-0ce6-4422-8bf6-0b90b8861c94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\vehicleManagerClass">
-      <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Manager">
       <UniqueIdentifier>{fb5ec57d-94a5-458e-86e6-8a36aa340fad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\fileManager">
       <UniqueIdentifier>{a394cdf3-b8ac-48fa-8c20-155ddb0982a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\vehicleFactory">
+      <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MovementStrategy">
+      <UniqueIdentifier>{cc839816-2317-45eb-a78d-696e20caa01c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\connectionClass">
+      <UniqueIdentifier>{0237bad0-b6b2-474e-9c25-f10241b7a538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\tickerClass">
+      <UniqueIdentifier>{0f10e79c-d16d-4a78-8ea1-ffd991481075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\VehicleManager">
+      <UniqueIdentifier>{7344dec2-a85c-4cb8-8c95-086518f113c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,11 +49,23 @@
     <ClCompile Include="Manager.cpp">
       <Filter>Classes\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="vehicleManager.cpp">
-      <Filter>Classes\vehicleManagerClass</Filter>
+    <ClCompile Include="vehicleFactory.cpp">
+      <Filter>Classes\vehicleFactory</Filter>
     </ClCompile>
     <ClCompile Include="fileManager.cpp">
       <Filter>Classes\fileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="tickerClass.cpp">
+      <Filter>Classes\tickerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="movementStrategyClass.cpp">
+      <Filter>Classes\MovementStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionClass.cpp">
+      <Filter>Classes\connectionClass</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicleManager.cpp">
+      <Filter>Classes\VehicleManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,11 +78,23 @@
     <ClInclude Include="Manager.h">
       <Filter>Classes\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="vehicleManager.h">
-      <Filter>Classes\vehicleManagerClass</Filter>
+    <ClInclude Include="vehicleFactory.h">
+      <Filter>Classes\vehicleFactory</Filter>
     </ClInclude>
     <ClInclude Include="fileManager.h">
       <Filter>Classes\fileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="tickerClass.h">
+      <Filter>Classes\tickerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="movementStrategyClass.h">
+      <Filter>Classes\MovementStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="connectionClass.h">
+      <Filter>Classes\connectionClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleManager.h">
+      <Filter>Classes\VehicleManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

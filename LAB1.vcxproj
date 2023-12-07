@@ -128,18 +128,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="connectionClass.cpp" />
     <ClCompile Include="fileManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="movementStrategyClass.cpp" />
     <ClCompile Include="pointClass.cpp" />
+    <ClCompile Include="tickerClass.cpp" />
     <ClCompile Include="vehicleClass.cpp" />
+    <ClCompile Include="vehicleFactory.cpp" />
     <ClCompile Include="vehicleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="connectionClass.h" />
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="movementStrategyClass.h" />
     <ClInclude Include="pointClass.h" />
+    <ClInclude Include="tickerClass.h" />
     <ClInclude Include="vehicleClass.h" />
+    <ClInclude Include="vehicleFactory.h" />
     <ClInclude Include="vehicleManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
