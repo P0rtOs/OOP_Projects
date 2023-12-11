@@ -134,6 +134,8 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="movementStrategyClass.cpp" />
     <ClCompile Include="pointClass.cpp" />
+    <ClCompile Include="pointFactory.cpp" />
+    <ClCompile Include="pointManager.cpp" />
     <ClCompile Include="tickerClass.cpp" />
     <ClCompile Include="vehicleClass.cpp" />
     <ClCompile Include="vehicleFactory.cpp" />
@@ -145,6 +147,8 @@
     <ClInclude Include="Manager.h" />
     <ClInclude Include="movementStrategyClass.h" />
     <ClInclude Include="pointClass.h" />
+    <ClInclude Include="pointFactory.h" />
+    <ClInclude Include="pointManager.h" />
     <ClInclude Include="tickerClass.h" />
     <ClInclude Include="vehicleClass.h" />
     <ClInclude Include="vehicleFactory.h" />

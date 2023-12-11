@@ -18,7 +18,7 @@ Point::~Point() {
 	std::cout << "Point deleted. \n";
 }
 
-int Point::getPointId() {
+const int Point::getPointId() {
 	return this->pointId;
 }
 
@@ -42,10 +42,10 @@ void Point::setPointY(double y) {
 }
 
 void Point::addNeighbor(int neighborId, int ticks = 3, double weightLimit = 10000) {
-	neighbors.emplace_back(neighborId);
+	neighbors.emplace_back(new Connection(neighborId, ticks, weightLimit));
 }
 
-const vector<Connection>& Point::getNeighbor() const {
+const vector<Connection*> Point::getNeighbor() const {
 	return neighbors;
 }
 

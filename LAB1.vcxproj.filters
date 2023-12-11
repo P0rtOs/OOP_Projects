@@ -8,23 +8,11 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{4a239231-f683-40d3-b288-30ee6a2eb7ce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\pointClass">
-      <UniqueIdentifier>{1553a7df-8fd1-45c8-a973-6cd52a1f291a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\vehicleClass">
-      <UniqueIdentifier>{dbc002bc-0ce6-4422-8bf6-0b90b8861c94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Manager">
       <UniqueIdentifier>{fb5ec57d-94a5-458e-86e6-8a36aa340fad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\fileManager">
       <UniqueIdentifier>{a394cdf3-b8ac-48fa-8c20-155ddb0982a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\vehicleFactory">
-      <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\MovementStrategy">
-      <UniqueIdentifier>{cc839816-2317-45eb-a78d-696e20caa01c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\connectionClass">
       <UniqueIdentifier>{0237bad0-b6b2-474e-9c25-f10241b7a538}</UniqueIdentifier>
@@ -32,8 +20,32 @@
     <Filter Include="Classes\tickerClass">
       <UniqueIdentifier>{0f10e79c-d16d-4a78-8ea1-ffd991481075}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\VehicleManager">
+    <Filter Include="Classes\vehicleLogic">
+      <UniqueIdentifier>{315c7710-94d9-4678-af56-dee7df242864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\vehicleLogic\vehicleClass">
+      <UniqueIdentifier>{dbc002bc-0ce6-4422-8bf6-0b90b8861c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\vehicleLogic\vehicleFactory">
+      <UniqueIdentifier>{ae64df9f-1b3d-419f-bcc3-f897a3d06ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\vehicleLogic\vehicleManager">
       <UniqueIdentifier>{7344dec2-a85c-4cb8-8c95-086518f113c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\pointLogic">
+      <UniqueIdentifier>{bc5c00d9-4daf-4833-9c76-cb62257b7d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\pointLogic\pointManager">
+      <UniqueIdentifier>{f6d84152-99f9-4409-8274-c7b337dc70f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\pointLogic\pointClass">
+      <UniqueIdentifier>{1553a7df-8fd1-45c8-a973-6cd52a1f291a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MovementStrategy">
+      <UniqueIdentifier>{cc839816-2317-45eb-a78d-696e20caa01c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\pointLogic\pointFactory">
+      <UniqueIdentifier>{2b80b875-c0de-4f2d-95e0-986d6169559d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,16 +53,16 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="pointClass.cpp">
-      <Filter>Classes\pointClass</Filter>
+      <Filter>Classes\pointLogic\pointClass</Filter>
     </ClCompile>
     <ClCompile Include="vehicleClass.cpp">
-      <Filter>Classes\vehicleClass</Filter>
+      <Filter>Classes\vehicleLogic\vehicleClass</Filter>
     </ClCompile>
     <ClCompile Include="Manager.cpp">
       <Filter>Classes\Manager</Filter>
     </ClCompile>
     <ClCompile Include="vehicleFactory.cpp">
-      <Filter>Classes\vehicleFactory</Filter>
+      <Filter>Classes\vehicleLogic\vehicleFactory</Filter>
     </ClCompile>
     <ClCompile Include="fileManager.cpp">
       <Filter>Classes\fileManager</Filter>
@@ -65,21 +77,27 @@
       <Filter>Classes\connectionClass</Filter>
     </ClCompile>
     <ClCompile Include="vehicleManager.cpp">
-      <Filter>Classes\VehicleManager</Filter>
+      <Filter>Classes\vehicleLogic\vehicleManager</Filter>
+    </ClCompile>
+    <ClCompile Include="pointManager.cpp">
+      <Filter>Classes\pointLogic\pointManager</Filter>
+    </ClCompile>
+    <ClCompile Include="pointFactory.cpp">
+      <Filter>Classes\pointLogic\pointFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pointClass.h">
-      <Filter>Classes\pointClass</Filter>
+      <Filter>Classes\pointLogic\pointClass</Filter>
     </ClInclude>
     <ClInclude Include="vehicleClass.h">
-      <Filter>Classes\vehicleClass</Filter>
+      <Filter>Classes\vehicleLogic\vehicleClass</Filter>
     </ClInclude>
     <ClInclude Include="Manager.h">
       <Filter>Classes\Manager</Filter>
     </ClInclude>
     <ClInclude Include="vehicleFactory.h">
-      <Filter>Classes\vehicleFactory</Filter>
+      <Filter>Classes\vehicleLogic\vehicleFactory</Filter>
     </ClInclude>
     <ClInclude Include="fileManager.h">
       <Filter>Classes\fileManager</Filter>
@@ -94,7 +112,13 @@
       <Filter>Classes\connectionClass</Filter>
     </ClInclude>
     <ClInclude Include="vehicleManager.h">
-      <Filter>Classes\VehicleManager</Filter>
+      <Filter>Classes\vehicleLogic\vehicleManager</Filter>
+    </ClInclude>
+    <ClInclude Include="pointManager.h">
+      <Filter>Classes\pointLogic\pointManager</Filter>
+    </ClInclude>
+    <ClInclude Include="pointFactory.h">
+      <Filter>Classes\pointLogic\pointFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
