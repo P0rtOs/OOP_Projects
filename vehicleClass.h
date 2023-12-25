@@ -26,9 +26,15 @@ private:
     int vehicleId;
     std::string vehicleType;
     int currentPointId;
-    int goalPointId;
-    Connection currentRoad;
+    //int goalPointId;
+    Connection* currentRoad;
     LocationState currentState;
+    int ticksRemaining = 0;
+    int currentPathIndex = 0;
+    std::vector<Point*> path;
+    void moveToNextPointOnPath();
+    void onArrivalToPoint();
+    int ticksAtCurrentPoint = 0;
 
 public:
     Vehicle();
@@ -38,14 +44,16 @@ public:
     void setVehicleId(int Id);
     void setVehicleType(std::string vehicleType);
     void setVehiclePoint(int newPointId);
-    void setVehicleRoad(const Connection& newConnection);
-    void setVehicleGoalPoint(int newGoalPointId);
+    void setVehicleRoad(Connection* newConnection);
+//    void setVehicleGoalPoint(int newGoalPointId);
     void setMovementStrategyPM(PointManager* pm);
     std::string getVehicleType();
+    void setPath(const std::vector<Point*>& newPath);
     void update() override;
 
-    void moveToRoad(const Connection& road);
+    //void moveToRoad(const Connection& road);
     void moveToPoint(int pointId);
+    bool canDepartFromPoint();
 
     std::string getLocationInfo();
         

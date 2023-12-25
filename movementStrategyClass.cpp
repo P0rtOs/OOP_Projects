@@ -17,33 +17,74 @@ void StandartCarMovingStrategy::move(Vehicle& vehicle) {
 }
 
 
-void StandartCarMovingStrategy::dijkstraShortestPath(int sourceId) {
-    // Ініціалізація відстаней до вершин
-    std::vector<double> distance(pointManager->getAllPoints().size(), std::numeric_limits<double>::infinity());
+//void StandartCarMovingStrategy::dijkstraShortestPath(int sourceId) {
+//     Initialize distances to points
+//    vector<double> distance(pointManager->getAllPoints().size(), std::numeric_limits<double>::infinity());
+//    distance[sourceId] = 0.0;
+//
+//     Priority queue for processing points in order of increasing distance
+//    std::priority_queue<std::pair<double, int>, vector<std::pair<double, int>>, std::greater<>> pq;
+//    pq.push({ 0.0, sourceId });
+//
+//    while (!pq.empty()) {
+//        int u = pq.top().second;
+//        pq.pop();
+//
+//         Update distances to neighbors of point u
+//        for (const auto& connection : pointManager->getAllPoints()[u]->getNeighbor()) {
+//            int v = connection->getNeighborId();
+//            double weight = static_cast<double>(connection->getTicksToTraverse());
+//             Apply relaxation
+//            if (distance[v] > distance[u] + weight) {
+//                distance[v] = distance[u] + weight;
+//                pq.push({ distance[v], v });
+//            }
+//        }
+//    }
+//
+//     Output results
+//    for (size_t i = 0; i < pointManager->getAllPoints().size(); ++i) {
+//        std::cout << "Shortest distance from " << sourceId << " to " << i << ": " << distance[i] << std::endl;
+//    }
+//}
+
+vector<Point*> StandartCarMovingStrategy::dijkstraShortestPath(int sourceId, int targetId, Vehicle& vehicle) {
+    // Initialize distances to points and predecessors
+    vector<double> distance(pointManager->getAllPoints().size(), std::numeric_limits<double>::infinity());
+    vector<int> predecessor(pointManager->getAllPoints().size(), -1);  // Use -1 to indicate no predecessor
     distance[sourceId] = 0.0;
 
-    // Пріорітетна черга для обробки вершин у порядку зростання відстані
-    std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>> pq;
+    // Priority queue for processing points in order of increasing distance
+    std::priority_queue<std::pair<double, int>, vector<std::pair<double, int>>, std::greater<>> pq;
     pq.push({ 0.0, sourceId });
 
     while (!pq.empty()) {
         int u = pq.top().second;
         pq.pop();
 
-        // Оновлення відстаней до сусідів вершини u
-        for (const auto& connection : graph[u].neighbors) {
-            int v = connection.neighborId;
-            // Застосовуємо релаксацію
-            if (distance[v] > distance[u] + 1.0) {
-                distance[v] = distance[u] + 1.0;
+        // If we reached the target, we can stop the algorithm
+        if (u == targetId) break;
+
+        // Update distances to neighbors of point u
+        for (const auto& connection : pointManager->getAllPoints()[u]->getNeighbor()) {
+            int v = connection->getNeighborId();
+            double weight = static_cast<double>(connection->getTicksToTraverse());
+            // Apply relaxation
+            if (distance[v] > distance[u] + weight) {
+                distance[v] = distance[u] + weight;
+                predecessor[v] = u;  // Store the predecessor for path reconstruction
                 pq.push({ distance[v], v });
             }
         }
     }
 
-    // Виведення результатів
-    for (int i = 0; i < pointManager->getAllPoints().size(); ++i) {
-        std::cout << "Shortest distance from " << sourceId << " to " << i << ": " << distance[i] << std::endl;
+    // Reconstruct the shortest path from source to target
+    vector<Point*> shortestPath;
+    for (int at = targetId; at != -1; at = predecessor[at]) {
+        shortestPath.push_back(pointManager->getAllPoints()[at]);
     }
+    std::reverse(shortestPath.begin(), shortestPath.end()); // Reverse to get the correct order
+    vehicle.setPath(shortestPath);
+    return shortestPath;
 }
 // TODO: Написать алгоритмы как будут перемещаться разные типы машин ( стандартный, грузовик, тд )  

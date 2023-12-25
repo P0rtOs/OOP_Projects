@@ -25,15 +25,19 @@
 	void Vehicle::setVehicleType(std::string thisType) { this->vehicleType = thisType; }
 	std::string Vehicle::getVehicleType() { return this->vehicleType; }
 	void Vehicle::setVehiclePoint(int newPointId) { currentPointId = newPointId; }
-	void Vehicle::setVehicleRoad(const Connection& newConnection) { currentRoad = newConnection; }
-	void Vehicle::setVehicleGoalPoint(int newGoalPointId) { goalPointId = newGoalPointId; }
+	void Vehicle::setVehicleRoad(Connection* newConnection) { currentRoad = newConnection; }
+	//void Vehicle::setVehicleGoalPoint(int newGoalPointId) { goalPointId = newGoalPointId; }
 	void Vehicle::setMovementStrategyPM(PointManager* pm) {
 		movementStrategy = new StandartCarMovingStrategy(pm);
 	}
-	void Vehicle::moveToRoad(const Connection& road) {
-		currentState = ON_ROAD;
-		currentRoad = road;
+	void Vehicle::setPath(const std::vector<Point*>& newPath) {
+		path = newPath;
+		currentPathIndex = 0;
 	}
+	//void Vehicle::moveToRoad(const Connection& road) {
+	/*	currentState = ON_ROAD;
+		currentRoad = road;
+	}*/
 	void Vehicle::moveToPoint(int pointId) {
 		currentState = AT_POINT;
 		currentPointId = pointId;
@@ -44,13 +48,76 @@
 			locationInfo = "Vehicle is at point ID " + std::to_string(currentPointId);
 		}
 		else if (currentState == ON_ROAD) {
-			locationInfo = "Vehicle is on road to point ID " + std::to_string(currentRoad.getNeighborId());
+			locationInfo = "Vehicle is on road to point ID " + std::to_string(currentRoad->getNeighborId());
 		}
 		return locationInfo;
 	}
 
 	void Vehicle::update() {
-		movementStrategy->move(*this);
+		if (!path.empty() && currentPathIndex < path.size()) {
+			// If the vehicle is currently at a point, check if it can move to the next road
+			if (currentState == AT_POINT) {
+				// Logic to decide if the vehicle can start moving on the next road
+				// For example, you might check if enough ticks have passed
+				if (canDepartFromPoint()) {
+					moveToNextPointOnPath(); // Move to the next road or point
+				}
+			}
+			else if (currentState == ON_ROAD) {
+				// If the vehicle is currently on a road, update its progress along the road
+				// Decrement the ticks remaining to traverse the current road
+				--ticksRemaining;
+				if (ticksRemaining <= 0) {
+					// The vehicle has reached the next point
+					currentState = AT_POINT; // Update the state to AT_POINT
+					// Possibly perform some actions upon arriving at the point
+					onArrivalToPoint();
+				}
+			}
+		}
+	}
+
+	void Vehicle::moveToNextPointOnPath() {
+		Point* nextPoint = path[currentPathIndex];
+		currentPathIndex++;
+	}
+
+	void Vehicle::onArrivalToPoint() {
+		// Perform actions that should occur when a vehicle arrives at a point
+		// Example: Update vehicle's current point, possibly wait for loading/unloading
+		Point* arrivedPoint = path[currentPathIndex];
+		std::cout << "Vehicle arrived at point ID: " << arrivedPoint->getPointId() << std::endl;
+		// Set the new current point for the vehicle
+		currentPointId = arrivedPoint->getPointId();
+		// Reset ticks remaining since we've arrived at the point
+		ticksRemaining = 0;
+		ticksAtCurrentPoint = 0;
+		// If there's a next point, prepare to move to the next road
+		if (currentPathIndex < path.size() - 1) {
+			// Prepare for the next road, but don't move yet - wait for the next update tick
+			Point* nextPoint = path[currentPathIndex + 1];
+			// Find the connection (road) to the next point
+			Connection* nextRoad = nullptr;
+			for (auto* connection : movementStrategy->pointManager->getPoint(currentPointId)->getNeighbor()) {
+				if (connection->getNeighborId() == nextPoint->getPointId()) {
+					nextRoad = connection;
+					break;
+				}
+			}
+			if (nextRoad) {
+				// Prepare for the next road
+				currentRoad = nextRoad; // Set the next road
+				ticksRemaining = nextRoad->getTicksToTraverse(); // Set the travel time
+				// The vehicle is now ready to move onto this road in the next update cycle
+			}
+		}
+		else {
+			// If this was the last point, perform any completion logic here
+		}
+	}
+
+	bool Vehicle::canDepartFromPoint() {
+		return ticksAtCurrentPoint >= 3;
 	}
 
 	Car::Car() : numberOfDoors(4) {}
