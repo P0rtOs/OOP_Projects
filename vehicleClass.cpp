@@ -11,7 +11,6 @@
 	{
 		std::cout << "Vehicle created using default constuctor. " << std::endl;
 	}
-
 	Vehicle::Vehicle(int vehicleId, std::string vehicleType) : currentState(AT_POINT)
 	{
 		this->setVehicleId(vehicleId);
@@ -19,37 +18,26 @@
 
 		std::cout << "Vehicle created with following parameters: " << this->getVehicleId() << " " << this->getVehicleType() << std::endl;
 	}
-
 	Vehicle::~Vehicle() {std::cout << "Vehicle deleted" << std::endl;}
 
 	int Vehicle::getVehicleId() { return this->vehicleId; }
-
 	void Vehicle::setVehicleId(int Id) { this->vehicleId = Id; }
-
 	void Vehicle::setVehicleType(std::string thisType) { this->vehicleType = thisType; }
-
 	std::string Vehicle::getVehicleType() { return this->vehicleType; }
-
 	void Vehicle::setVehiclePoint(int newPointId) { currentPointId = newPointId; }
-
 	void Vehicle::setVehicleRoad(const Connection& newConnection) { currentRoad = newConnection; }
-
 	void Vehicle::setVehicleGoalPoint(int newGoalPointId) { goalPointId = newGoalPointId; }
-
 	void Vehicle::setMovementStrategyPM(PointManager* pm) {
 		movementStrategy = new StandartCarMovingStrategy(pm);
 	}
-
 	void Vehicle::moveToRoad(const Connection& road) {
 		currentState = ON_ROAD;
 		currentRoad = road;
 	}
-
 	void Vehicle::moveToPoint(int pointId) {
 		currentState = AT_POINT;
 		currentPointId = pointId;
 	}
-
 	std::string Vehicle::getLocationInfo() {
 		std::string locationInfo;
 		if (currentState == AT_POINT) {
@@ -61,43 +49,35 @@
 		return locationInfo;
 	}
 
-
 	void Vehicle::update() {
 		movementStrategy->move(*this);
 	}
 
 	Car::Car() : numberOfDoors(4) {}
-
 	Car::Car(int vehicleId, std::string vehicleType, int doors, PointManager* pm)
 		: Vehicle(vehicleId, vehicleType), numberOfDoors(doors) {
 		setMovementStrategyPM(pm);
 	}
-
 	int Car::getNumberOfDoors()
 	{
 		return numberOfDoors;
 	}
-
 	void Car::setNumberOfDoors(int doors)
 	{
 		numberOfDoors = doors;
 	}
 
 	Truck::Truck() : aim(default_point) {} // конструткор по стандарту для цілі вантажівки, можливо якийсь центр логістики
-
 	Truck::Truck(int vehicleId, std::string vehicleType, PointManager* pm)
 		: Vehicle(vehicleId, vehicleType) {}
-
 	Point Truck::getAim()
 	{
 		return aim;
 	}
-
 	void Truck::setAim(Point point)
 	{
 		aim = point;
 	}
-
 	//SchoolBus::SchoolBus() : bus_stations_to_serve(default_vector), school_to_serve(default_point) {}
 	//
 	//SchoolBus::SchoolBus(int vehicleId, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string vehicleType, Point school_to_serve1, std::vector<Point> bus_stations_to_serve1)
