@@ -16,6 +16,7 @@ public:
 class StandartCarMovingStrategy : public MovementStrategy {
 public:
 	StandartCarMovingStrategy(PointManager* pm);
+	void dijkstraShortestPath(int sourceId);
 	void move(Vehicle& vehicle) override;
 };
 
