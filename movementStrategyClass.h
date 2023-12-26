@@ -1,6 +1,5 @@
 #pragma once
 #include "vehicleClass.h"
-#include "pointManager.h"
 
 class Vehicle;
 

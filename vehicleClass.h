@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "pointClass.h"
 #include "pointManager.h"
 #include "tickerClass.h"
 #include "movementStrategyClass.h"
@@ -14,6 +13,9 @@
 // TODO: Возможно написать отдельный класс, который будет заниматься лишь тем, что каждую машину каждый тик приближать к своей цели согласно своей стратегии. Возможно он даже будет самим movementStrategyClass.
 
 // Мы можем создавать машину исключительно из её параметров типо какой тип и какой айди, а потом только при проверке следующего тика, рандомно назначать ей позицию, но тогда нужно ей сразу - же передавать pointManager./
+class Vehicle;
+class MovementStrategy;
+
 class Vehicle : public Observer
 {
 protected:

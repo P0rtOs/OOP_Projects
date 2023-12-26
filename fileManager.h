@@ -3,6 +3,8 @@
 #include "vehicleManager.h"
 #include "connectionClass.h"
 #include "pointFactory.h"
+#include "GlobalObjects.h"
+
 
 #include <iostream>
 #include <fstream>
@@ -13,7 +15,7 @@ class readingFiles
 {
     void readPointsFromFile(const std::string& filename)
     {
-        const std::string a = "TEST1.txt";
+        const std::string a = "points_pack_1.txt";
         std::ifstream file(a);
         int id, x, y, readed_int, ticks, mas_limit;
         std::vector<Connection*> connections(5);
@@ -57,13 +59,19 @@ class readingFiles
                 }
             }
 
-             
+            globalPointFactory.createPoint(id, x, y, connections);
         }
+
+
 
         file.close();
     }
 
     void readVehiclesFromFile(const std::string& filename)
+    {
+
+
+    }
 };
 
 
