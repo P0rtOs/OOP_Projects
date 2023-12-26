@@ -14,6 +14,15 @@ Point::Point(int pointId, double pointX, double pointY) {
 	this->setPointY(pointY);
 }
 
+Point::Point(int pointId, double pointX, double pointY, std::vector<Connection*> connections)
+{
+	std::cout << "Point created with settings:" << pointId << " " << pointX << " " << pointY << "\n";
+	this->setPointId(pointId);
+	this->setPointX(pointX);
+	this->setPointY(pointY);
+	this->setNeighbor(connections);
+}
+
 Point::~Point() {
 	std::cout << "Point deleted. \n";
 }
@@ -43,6 +52,10 @@ void Point::setPointY(double y) {
 
 void Point::addNeighbor(int neighborId, int ticks = 3, double weightLimit = 10000) {
 	neighbors.emplace_back(new Connection(neighborId, ticks, weightLimit));
+}
+
+void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
+	this->neighbors = connectionsToSet;
 }
 
 const vector<Connection*> Point::getNeighbor() const {

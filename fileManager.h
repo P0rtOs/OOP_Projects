@@ -2,6 +2,7 @@
 
 #include "vehicleManager.h"
 #include "connectionClass.h"
+#include "pointFactory.h"
 
 #include <iostream>
 #include <fstream>
@@ -16,7 +17,7 @@ class readingFiles
         const std::string a = "TEST1.txt";
         std::ifstream file(a);
         int id, x, y, readed_int, ticks, mas_limit;
-        std::vector<Connection> connections;
+        std::vector<Connection*> connections;
         //std::ifstream file(filename);
 
         if (!file.is_open())
@@ -40,14 +41,20 @@ class readingFiles
                 while (iss >> symbol && symbol != '?')
                 {
                     iss >> readed_int;
-                    connections[i].setNeighborId(readed_int);
+                    connections[i]->setNeighborId(readed_int);
                     i++;
                 }
                 
-                iss >> ticks >> mas_limit;
+                iss >> ticks;
+                iss >> mas_limit;
+                for (int s = 0; s < connections.size(); s++)
+                {
+                    connections[s]->setTicksToTraverse(ticks);
+                    connections[s]->setWeightLimit(mas_limit);
+                }
             }
 
-            Point point(id, x, y, connections);
+             
         }
 
         file.close();
