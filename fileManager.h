@@ -8,16 +8,15 @@
 #include <fstream>
 #include <sstream>
 
-//TODO Дописати конструктор для поінта з ініціалізацією всіх полів. Перевірити правильність зчитування 
-// Додати створення точки менеджером після зчитування даних.
+// Додати створення точки після зчитування даних.
 class readingFiles
 {
-    void readDataFromFile(const std::string& filename)
+    void readPointsFromFile(const std::string& filename)
     {
         const std::string a = "TEST1.txt";
         std::ifstream file(a);
         int id, x, y, readed_int, ticks, mas_limit;
-        std::vector<Connection*> connections;
+        std::vector<Connection*> connections(5);
         //std::ifstream file(filename);
 
         if (!file.is_open())
@@ -41,6 +40,10 @@ class readingFiles
                 while (iss >> symbol && symbol != '?')
                 {
                     iss >> readed_int;
+                    if (connections.size() == i)
+                    {
+                        connections.resize(i + 5);
+                    }
                     connections[i]->setNeighborId(readed_int);
                     i++;
                 }
@@ -59,6 +62,8 @@ class readingFiles
 
         file.close();
     }
+
+    void readVehiclesFromFile(const std::string& filename)
 };
 
 
