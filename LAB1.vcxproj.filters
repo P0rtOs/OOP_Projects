@@ -85,6 +85,9 @@
     <ClCompile Include="pointFactory.cpp">
       <Filter>Classes\pointLogic\pointFactory</Filter>
     </ClCompile>
+    <ClCompile Include="globalObjects.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pointClass.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="pointFactory.h">
       <Filter>Classes\pointLogic\pointFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="globalObjects.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
