@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="connectionClass.h" />
     <ClInclude Include="fileManager.h" />
+    <ClInclude Include="globalObjects.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="movementStrategyClass.h" />
     <ClInclude Include="pointClass.h" />

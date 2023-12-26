@@ -47,6 +47,9 @@
     <Filter Include="Classes\pointLogic\pointFactory">
       <UniqueIdentifier>{2b80b875-c0de-4f2d-95e0-986d6169559d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\globalObjects">
+      <UniqueIdentifier>{b34b4e33-7c75-4bf2-b12f-a6bce004870b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="pointFactory.h">
       <Filter>Classes\pointLogic\pointFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="globalObjects.h">
+      <Filter>Classes\globalObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
