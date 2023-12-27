@@ -75,6 +75,9 @@
 				}
 			}
 		}
+		if (path.empty()) {
+			std::cout << "Path empty - no actions taken" << std::endl;
+		}
 	}
 
 	void Vehicle::moveToNextPointOnPath() {

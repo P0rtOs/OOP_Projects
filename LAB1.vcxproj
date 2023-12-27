@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="connectionClass.cpp" />
     <ClCompile Include="fileManager.cpp" />
+    <ClCompile Include="globalObjects.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="movementStrategyClass.cpp" />
