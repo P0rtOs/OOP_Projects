@@ -9,6 +9,9 @@ private:
 public:
 	Connection() = default;
 	Connection(int neighborId, int ticks, double weightLimit);
+	void setNeighborId(int idToSet);
+	void setTicksToTraverse(int TicksToSet);
+	void setWeightLimit(double WeightLimitToSet);
 	int getNeighborId();
 	int getTicksToTraverse();
 	double getWeightLimit();

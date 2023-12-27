@@ -16,38 +16,6 @@ void StandartCarMovingStrategy::move(Vehicle& vehicle) {
 	std::cout << "Moving car" << std::endl;
 }
 
-
-//void StandartCarMovingStrategy::dijkstraShortestPath(int sourceId) {
-//     Initialize distances to points
-//    vector<double> distance(pointManager->getAllPoints().size(), std::numeric_limits<double>::infinity());
-//    distance[sourceId] = 0.0;
-//
-//     Priority queue for processing points in order of increasing distance
-//    std::priority_queue<std::pair<double, int>, vector<std::pair<double, int>>, std::greater<>> pq;
-//    pq.push({ 0.0, sourceId });
-//
-//    while (!pq.empty()) {
-//        int u = pq.top().second;
-//        pq.pop();
-//
-//         Update distances to neighbors of point u
-//        for (const auto& connection : pointManager->getAllPoints()[u]->getNeighbor()) {
-//            int v = connection->getNeighborId();
-//            double weight = static_cast<double>(connection->getTicksToTraverse());
-//             Apply relaxation
-//            if (distance[v] > distance[u] + weight) {
-//                distance[v] = distance[u] + weight;
-//                pq.push({ distance[v], v });
-//            }
-//        }
-//    }
-//
-//     Output results
-//    for (size_t i = 0; i < pointManager->getAllPoints().size(); ++i) {
-//        std::cout << "Shortest distance from " << sourceId << " to " << i << ": " << distance[i] << std::endl;
-//    }
-//}
-
 vector<Point*> StandartCarMovingStrategy::dijkstraShortestPath(int sourceId, int targetId, Vehicle& vehicle) {
     // Initialize distances to points and predecessors
     vector<double> distance(pointManager->getAllPoints().size(), std::numeric_limits<double>::infinity());
