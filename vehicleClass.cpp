@@ -103,7 +103,7 @@ void Vehicle::update() {
 			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
 			if (destination != nullptr) {
 				movementStrategy->dijkstraShortestPath(this->getCurrentPointId(), destination->getPointId(), *this);
-				std::cout << "Passed fucking bullshit\n";
+				//std::cout << "Passed fucking bullshit\n";
 			}
 			else {
 				std::cerr << "No destination found\n";

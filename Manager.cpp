@@ -4,7 +4,7 @@
 #include <conio.h>
 #include <chrono>
 #include <thread>
-
+#include "fileManager.h"
 
 // TODO: Реализовать примерную UML диаграму, что должен каждый класс делать, по возможности упростить (уменьшить) количество классов. До сих пор не понимаю что делает Manager чего не может делать main
 
@@ -32,6 +32,10 @@ Manager::~Manager()
 // Метод для запуску симуляції руху
 void Manager::startTestSimulation()
 {
+    //readingFiles testRead;
+
+    //testRead.readPointsFromFile("lox");
+    //testRead.readPointsFromFile("zavtra");
     // TODO: Вписать тиккер клас в менеджер приложения, зарегистрировать всех обсерверов, которые должны тикаться
     Ticker ticker;
 
