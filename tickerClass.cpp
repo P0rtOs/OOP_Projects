@@ -1,4 +1,5 @@
 #include "tickerClass.h"
+#include <iostream>
 
 void Ticker::registerObserver(Observer* obs) {
 	observers.push_back(obs);
@@ -11,6 +12,7 @@ void Ticker::unregisterObserver(Observer* obs) {
 void Ticker::tick() {
 	for (Observer* obs : observers) {
 		obs->update();
+		std::cout << obs->currentStatus() << std::endl;
 	}
 }
 

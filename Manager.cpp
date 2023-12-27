@@ -35,16 +35,26 @@ void Manager::startTestSimulation()
     // TODO: ¬писать тиккер клас в менеджер приложени€, зарегистрировать всех обсерверов, которые должны тикатьс€
     Ticker ticker;
 
-    Point* point1 = globalPointFactory.createPoint(1, 2, 3);
-    Point* point2 = globalPointFactory.createPoint(2, 4, 5);
+    Point* point0 = globalPointFactory.createPoint(0, 2, 3);
+    Point* point1 = globalPointFactory.createPoint(1, 4, 5);
+    Point* point2 = globalPointFactory.createPoint(2, 6, 3);
+    Point* point3 = globalPointFactory.createPoint(3, 8, 7);
+
+    globalPointManager.addPoint(point0);
+    globalPointManager.addPoint(point1);
+    globalPointManager.addPoint(point2);
+    globalPointManager.addPoint(point3);
+
+    point0->addNeighbor(1, 6, 40);
+    point0->addNeighbor(2, 8, 40);
+    point1->addNeighbor(3, 7, 40);
+    point2->addNeighbor(3, 8, 40);
+
 
     globalPointManager.addPoint(point1);
 
     // ƒодаванн€ транспортного засобу за допомогою методу addVehicle
-    Point *startPoint = new Point(1, 2, 3);
-    Point *endPoint = new Point(4, 5, 6);
-
-    Vehicle* car = globalVehicleFactory.createVehicle(1, "Car");
+    Vehicle* car = globalVehicleFactory.createVehicle(0, "Car");
     Vehicle* truck = globalVehicleFactory.createVehicle(1, "Truck");
 
     globalVehicleManager.addVehicle(car);
@@ -53,6 +63,8 @@ void Manager::startTestSimulation()
     ticker.registerObserver(car);
     ticker.registerObserver(truck);
 
+    /*std::cout << car->getCurrentPointId();
+    std::cout << truck->getCurrentPointId();*/
 
     while (true) {
         ticker.tick();  // Perform a simulation tick
@@ -71,13 +83,10 @@ void Manager::startTestSimulation()
     ticker.unregisterObserver(truck);
     globalVehicleManager.removeVehicle(car);
     globalVehicleManager.removeVehicle(truck);
-    delete car;
-    delete truck;
+    globalPointManager.removePoint(point0->getPointId());
     globalPointManager.removePoint(point1->getPointId());
     globalPointManager.removePoint(point2->getPointId());
-
-    delete point1;
-    delete point2;
+    globalPointManager.removePoint(point3->getPointId());
 
 }
 

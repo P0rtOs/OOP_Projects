@@ -1,2 +1,12 @@
 ﻿  Manager.cpp
+  globalObjects.cpp
+  main.cpp
+  movementStrategyClass.cpp
+  pointClass.cpp
+  pointFactory.cpp
+  pointManager.cpp
+  vehicleClass.cpp
+  vehicleFactory.cpp
+  vehicleManager.cpp
+  Generating Code...
   LAB1.vcxproj -> C:\Users\alext\OneDrive\Desktop\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe

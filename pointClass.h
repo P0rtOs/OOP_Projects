@@ -22,7 +22,8 @@ class Point {
 		void setPointX(double x);
 		void setPointY(double y);
 		void setNeighbor(std::vector<Connection*> connectionsToSet);
+		void addConnection(int pointId, int ticks, double weightLimit);
 		void addNeighbor(int neighborId, int ticks, double weightLimit);
-		const vector<Connection*> getNeighbor() const;
+		vector<Connection*> getNeighbors();
 
 };

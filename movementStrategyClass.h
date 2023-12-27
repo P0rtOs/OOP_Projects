@@ -7,17 +7,20 @@ class MovementStrategy {
 protected:
 	
 public:
-	MovementStrategy(PointManager* pm);
+	MovementStrategy();
 	virtual void move(Vehicle& vehicle) = 0;
-	PointManager* pointManager;
-	void setPointManager(PointManager* pm);
+	virtual vector<Point*> dijkstraShortestPath(int sourceId, int targetId, Vehicle& vehicle) = 0;
+	virtual Point* returnRandomDestination(int currentPointId) = 0;
+	virtual std::string returnStrategyType() = 0;;
 };
 
 class StandartCarMovingStrategy : public MovementStrategy {
 public:
-	StandartCarMovingStrategy(PointManager* pm);
-	vector<Point*> dijkstraShortestPath(int sourceId,int targetId, Vehicle& vehicle);
+	StandartCarMovingStrategy();
+	std::string returnStrategyType() override;
+	vector<Point*> dijkstraShortestPath(int sourceId,int targetId, Vehicle& vehicle) override;
 	void move(Vehicle& vehicle) override;
+	Point* returnRandomDestination(int currentPointId) override;
 };
 
 

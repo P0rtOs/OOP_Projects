@@ -18,19 +18,18 @@ class MovementStrategy;
 
 class Vehicle : public Observer
 {
-protected:
-    MovementStrategy* movementStrategy;
-
 public:
     enum LocationState { AT_POINT, ON_ROAD };
-
+protected:
+    MovementStrategy* movementStrategy;
+    LocationState currentState;
 private:
     int vehicleId;
     std::string vehicleType;
-    int currentPointId;
-    //int goalPointId;
+    int currentPointId = 0;
+    //int destinationPointId;
     Connection* currentRoad;
-    LocationState currentState;
+    
     int ticksRemaining = 0;
     int currentPathIndex = 0;
     std::vector<Point*> path;
@@ -43,12 +42,14 @@ public:
     Vehicle(int vehicleId, std::string vehicleType);
     ~Vehicle();
     int getVehicleId();
+    int getCurrentPointId();
+    Connection* getCurrentRoad();
     void setVehicleId(int Id);
     void setVehicleType(std::string vehicleType);
     void setVehiclePoint(int newPointId);
     void setVehicleRoad(Connection* newConnection);
-//    void setVehicleGoalPoint(int newGoalPointId);
-    void setMovementStrategyPM(PointManager* pm);
+    void setLocationState(LocationState state);
+    //void setDestinationPoint(int newDestinationId);
     std::string getVehicleType();
     void setPath(const std::vector<Point*>& newPath);
     void update() override;
@@ -57,7 +58,8 @@ public:
     void moveToPoint(int pointId);
     bool canDepartFromPoint();
 
-    std::string getLocationInfo();
+    std::string currentStatus();
+
         
 };
 
@@ -68,7 +70,8 @@ private:
 
 public:
     Car();
-    Car(int vehicleId, std::string vehicleType, int doors, PointManager* pm);
+    Car(int vehicleId);
+    Car(int vehicleId, std::string vehicleType, int doors);
     int getNumberOfDoors();
     void setNumberOfDoors(int doors);
 };
@@ -76,14 +79,11 @@ public:
 class Truck : public Vehicle
 { // плануЇтьс€ €к звичайна базова одиниц€ без приоритет≥в чи особливостей.
 private:
-    Point aim;
-    Point default_point;
 
 public:
     Truck(); // конструткор по стандарту дл€ ц≥л≥ вантаж≥вки, можливо €кийсь центр лог≥стики
-    Truck(int vehicleId, std::string vehicleType, PointManager* pm);
-    Point getAim();
-    void setAim(Point point);
+    Truck(int vehicleId);
+    Truck(int vehicleId, std::string vehicleType);
 };
 
 //class SchoolBus : public Vehicle

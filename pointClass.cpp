@@ -1,5 +1,6 @@
 #include <iostream>
 #include "pointClass.h"
+#include "globalObjects.h"
 
 using std::vector;
 
@@ -50,15 +51,29 @@ void Point::setPointY(double y) {
 	this->pointY = y;
 }
 
+void Point::addConnection(int pointId, int ticks, double weightLimit) {
+	// This method adds a connection without creating a symmetrical one
+	neighbors.emplace_back(new Connection(pointId, ticks, weightLimit));
+}
+
 void Point::addNeighbor(int neighborId, int ticks = 3, double weightLimit = 10000) {
-	neighbors.emplace_back(new Connection(neighborId, ticks, weightLimit));
+	Point* neighborPoint = globalPointManager.getPoint(neighborId);
+	if (neighborPoint) {
+		neighbors.emplace_back(new Connection(neighborId, ticks, weightLimit));
+		neighborPoint->addConnection(this->pointId, ticks, weightLimit); // Add connection in the other direction
+	}
+	else {
+		// Handle the error, e.g., log a message or throw an exception
+		std::cerr << "Error - point doesn't exist" << std::endl;
+	}
+	
 }
 
 void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
 	this->neighbors = connectionsToSet;
 }
 
-const vector<Connection*> Point::getNeighbor() const {
+vector<Connection*> Point::getNeighbors() {
 	return neighbors;
 }
 

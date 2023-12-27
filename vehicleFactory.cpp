@@ -3,13 +3,13 @@
 
 Vehicle* VehicleFactory::createVehicle(int id, std::string type) {
     if (type == "Car") {
-        return new Car();
+        return new Car(id);
     }
     else if (type == "Truck") {
-        return new Truck();
+        return new Truck(id);
     }
     else {
-        return new Car();
+        return new Car(id);
     }
     /*else if (type == "SchoolBus") {
         return new SchoolBus();

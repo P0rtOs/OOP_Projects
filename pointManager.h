@@ -13,5 +13,5 @@ public:
     void addPoint(Point* point);
     void removePoint(int pointId);
     Point* getPoint(int pointId);
-    std::vector<Point*> getAllPoints(); 
+    std::vector<Point*>& getAllPoints(); 
 };
