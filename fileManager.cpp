@@ -1,59 +1,66 @@
 #include "fileManager.h"
 
-
 void readingFiles::readPointsFromFile(const std::string& filename)
 {
-    const std::string a = "points_pack_1.txt";
-    std::ifstream file(a);
-    int id, x, y, readed_int, ticks, mas_limit;
+    char ch;
+    int id, x, y, neightbourAmount, readed_int, ticks, mas_limit;
     std::vector<Connection*> connections(5);
-    //std::ifstream file(filename);
+    for (int s = 0; s < 5; s++)
+    {
+        connections[s] = new Connection(-1, -1, -1);
+    }
+
+    std::ifstream file("points_pack_1.txt", std::ios::binary);
+    //std::ifstream file(filename, std::ios::binary);
 
     if (!file.is_open())
     {
         std::cerr << "Unable to open the file: " << filename << std::endl;
-        exit(0);
+        exit(1);
     }
 
-    std::string line;
-    while (std::getline(file, line))
+    std::string readed;
+    std::getline(file, readed, '\n');
+    
+    std::istringstream text(readed);
+
+
+    while (1)
     {
-        std::istringstream iss(line);
-        char symbol;
-        iss >> symbol;
+        ch = file.get();
+        if (ch == ' ') { continue; }
+        if (ch == '\n') { continue; }
+        if (ch == '*') { break; }
+        
 
-        if (symbol == '#')
+        if (ch == '#')
         {
-            iss >> id >> x >> y;
+            file >> id;
+            file >> x;
+            file >> y;
+            file >> neightbourAmount;
 
-            int i = 0;
-            while (iss >> symbol && symbol != '?')
+            for (int i = 0; i < neightbourAmount; i++)
             {
-                iss >> readed_int;
-                if (connections.size() == i)
-                {
-                    connections.resize(i + 5);
-                }
+                file >> readed_int;
                 connections[i]->setNeighborId(readed_int);
-                i++;
             }
-
-            iss >> ticks;
-            iss >> mas_limit;
-            for (int s = 0; s < connections.size(); s++)
+            for (int i = 0; i < neightbourAmount; i++)
             {
-                connections[s]->setTicksToTraverse(ticks);
-                connections[s]->setWeightLimit(mas_limit);
+                text >> ticks;
+                connections[i]->setTicksToTraverse(ticks);
             }
+            for (int i = 0; i < neightbourAmount; i++)
+            {
+                text >> mas_limit;
+                connections[i]->setWeightLimit(mas_limit);
+            }
+            globalPointFactory.createPoint(id, x, y, connections);
         }
-
-        globalPointFactory.createPoint(id, x, y, connections);
+        
     }
-
-
-
-    file.close();
 }
+
 
 
 

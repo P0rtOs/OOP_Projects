@@ -13,6 +13,7 @@
 // Додати створення точки після зчитування даних.
 class readingFiles
 {
+public:
     void readPointsFromFile(const std::string& filename);
 
     void readVehiclesFromFile(const std::string& filename);
