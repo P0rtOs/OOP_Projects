@@ -1,4 +1,5 @@
 #include "vehicleFactory.h"
+#include "vehicleClass.h"
 
 Vehicle* VehicleFactory::createVehicle(int id, std::string type) {
     if (type == "Car") {
@@ -6,6 +7,9 @@ Vehicle* VehicleFactory::createVehicle(int id, std::string type) {
     }
     else if (type == "Truck") {
         return new Truck();
+    }
+    else {
+        return new Car();
     }
     /*else if (type == "SchoolBus") {
         return new SchoolBus();

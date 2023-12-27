@@ -2,7 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <utility>
-#include "vehicleClass.h"
+
+
+class Vehicle;
 
 class VehicleFactory
 {
