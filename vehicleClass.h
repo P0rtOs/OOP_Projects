@@ -6,13 +6,6 @@
 #include "connectionClass.h"
 #include <vector>
 
-// TODO: Подумать, сколько должна каждая машина проезжать за тик. 
-// TODO: Зачем нам количество дверей? Если нету причини и это просто bloat - удалить.
-
-// TODO: Переписать логику нахождение цели машини - это должен делать movementStrategyClass, а сюда должен лишь передавать, машина должна сама.
-// TODO: Возможно написать отдельный класс, который будет заниматься лишь тем, что каждую машину каждый тик приближать к своей цели согласно своей стратегии. Возможно он даже будет самим movementStrategyClass.
-
-// Мы можем создавать машину исключительно из её параметров типо какой тип и какой айди, а потом только при проверке следующего тика, рандомно назначать ей позицию, но тогда нужно ей сразу - же передавать pointManager./
 class Vehicle;
 class MovementStrategy;
 
@@ -64,42 +57,27 @@ public:
 };
 
 class Car : public Vehicle
-{ // планується як звичайна базова одиниця без приоритетів чи особливостей.
-private:
-    int numberOfDoors;
-
+{ // Базова одиниця без приоритетів чи особливостей.
 public:
     Car();
     Car(int vehicleId);
-    Car(int vehicleId, std::string vehicleType, int doors);
-    int getNumberOfDoors();
-    void setNumberOfDoors(int doors);
+    Car(int vehicleId, std::string vehicleType);
 };
 
 class Truck : public Vehicle
-{ // планується як звичайна базова одиниця без приоритетів чи особливостей.
+{ // Буде іздити лише між домівками та поштовими офісами.
 private:
 
 public:
-    Truck(); // конструткор по стандарту для цілі вантажівки, можливо якийсь центр логістики
+    Truck();
     Truck(int vehicleId);
     Truck(int vehicleId, std::string vehicleType);
 };
 
-//class SchoolBus : public Vehicle
-//{
-//private:
-//    std::vector<Point> bus_stations_to_serve;
-//    Point school_to_serve;
-//
-//    Point default_point;
-//    std::vector<Point> default_vector;
-//
-//public:
-//    SchoolBus();
-//    SchoolBus(int vehicleId, int newVehicleCurrentPointId, int newVehicleGoalPoint, std::string vehicleType, Point school_to_serve1, std::vector<Point> bus_stations_to_serve1);
-//    Point getSchool();
-//    void setSchool(Point school_to_serve1);
-//    std::vector<Point> getbus_stations_to_serve();
-//    void setbus_stations_to_serve(std::vector<Point> bus_stations_to_serve1);
-//};
+class SchoolBus : public Vehicle {
+private:
+    bool headingToSchool;  // Flag to indicate if the next destination is the school
+
+public:
+    SchoolBus(int vehicleId);
+};

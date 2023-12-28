@@ -5,9 +5,12 @@
 
 class Manager
 {
-    public:
-        Manager();
-        ~Manager();
-        void startTestSimulation();
-        void endSimulation();
+private:
+    Ticker ticker;
+    readingFiles readingInterface;
+public:
+    Manager() = default;
+    ~Manager() = default;
+    void startTestSimulation();
+    void endSimulation();
 };

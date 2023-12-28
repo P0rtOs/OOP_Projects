@@ -1,9 +1,10 @@
 #include "connectionClass.h"
 
+#include <iostream>
 
-//Connection::Connection() : neighborId(-1), ticksToTraverse(-1), weightLimit(-1) {}
-Connection::Connection(int neighborId, int ticks, double weightLimit) : neighborId(neighborId), ticksToTraverse(ticks), weightLimit(weightLimit) {}
-
+Connection::Connection(int neighborId, int ticks, double weightLimit) : neighborId(neighborId), ticksToTraverse(ticks), weightLimit(weightLimit) {
+	std::cout << "Connection to " << getNeighborId() << " created (ticksToTraverse: " << getTicksToTraverse() << ", weightLimit: " << getWeightLimit() << ").\n";
+}
 
 void Connection::setNeighborId(int idToSet)
 {

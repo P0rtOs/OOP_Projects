@@ -1,6 +1,14 @@
 #include "vehicleManager.h"
 #include <algorithm>
 
+VehicleManager::~VehicleManager() {
+    std::cout << "Deleting VehicleManager instance.\n";
+    for (Vehicle* vehicle : vehicles) {
+        delete vehicle;  // Delete each dynamically allocated Vehicle
+    }
+    vehicles.clear();
+}
+
 void VehicleManager::addVehicle(Vehicle* vehicle) {
     vehicles.push_back(vehicle);
 }
@@ -14,6 +22,10 @@ void VehicleManager::removeVehicle(Vehicle* vehicle) {
         // Erase the vehicle from the vector
         vehicles.erase(it);
     }
+}
+
+std::vector<Vehicle*>& VehicleManager::getVehicles(){
+    return vehicles;
 }
 
 

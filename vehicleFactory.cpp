@@ -8,6 +8,9 @@ Vehicle* VehicleFactory::createVehicle(int id, std::string type) {
     else if (type == "Truck") {
         return new Truck(id);
     }
+    else if (type == "SchoolBus") {
+        return new SchoolBus(id);
+    }
     else {
         return new Car(id);
     }

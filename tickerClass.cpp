@@ -1,4 +1,5 @@
 #include "tickerClass.h"
+
 #include <iostream>
 
 void Ticker::registerObserver(Observer* obs) {
@@ -11,10 +12,10 @@ void Ticker::unregisterObserver(Observer* obs) {
 
 void Ticker::tick() {
 	for (Observer* obs : observers) {
-		obs->update();
 		std::cout << obs->currentStatus() << std::endl;
+		obs->update();
+		
 	}
+	std::cout << "\n-----------Tick #" << tickNumber << "-----------------\n";
+	tickNumber++;
 }
-
-
-// TODO: Вписать тиккер клас в менеджер приложения, зарегистрировать всех обсерверов, которые должны тикаться

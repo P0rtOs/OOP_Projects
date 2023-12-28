@@ -11,6 +11,7 @@ public:
 
 class Ticker {
 	std::vector<Observer*> observers;
+	unsigned int tickNumber = 0;
 public:
 	void registerObserver(Observer* obs);
 	void unregisterObserver(Observer* obs);

@@ -1,17 +1,19 @@
 #pragma once
-#include <vector>
 #include "pointClass.h"
+
+#include <vector>
+#include <memory>
 
 class PointManager {
 private:
-    std::vector<Point*> points;
+    std::vector<std::unique_ptr<Point>> points;
 
 public:
     PointManager() = default;
     ~PointManager() = default;
 
-    void addPoint(Point* point);
+    void addPoint(std::unique_ptr<Point> point);
     void removePoint(int pointId);
     Point* getPoint(int pointId);
-    std::vector<Point*>& getAllPoints(); 
+    std::vector<std::unique_ptr<Point>>& getAllPoints();
 };
