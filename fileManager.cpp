@@ -2,24 +2,19 @@
 
 
 void handlePointCreation(int id, int x, int y, const std::vector<int>& neighborIds, const std::vector<int>& ticks, const std::vector<int>& weights) {
-    // Створюємо смарт-поінтер
-    auto point = std::make_unique<Point>(id, x, y);
-
-    // Додаємо до нього Connections
+    // Prepare connections
+    std::vector<std::unique_ptr<Connection>> connections;
     for (size_t i = 0; i < neighborIds.size(); ++i) {
-        point->addConnection(neighborIds[i], ticks[i], weights[i]);
+        connections.emplace_back(std::make_unique<Connection>(neighborIds[i], ticks[i], weights[i]));
     }
 
-    /*std::cout << "id:" << id << " " << x << " " << y;
-    for (size_t i = 0; i < neighborIds.size(); i++) {
-        std::cout << " N id " << point->getNeighbors()[i]->getNeighborId()
-            << " ticks: " << point->getNeighbors()[i]->getTicksToTraverse()
-            << " weight: " << point->getNeighbors()[i]->getWeightLimit() << std::endl;
-    }*/
+    // Use PointFactory to create the Point
+    auto point = globalPointFactory.createPoint(id, x, y, connections);
 
-    // Записуємо у менеджер
-    globalPointManager.addPoint(std::move(point));  // Передаємо у власність менеджеру
+    // Add the created Point to the PointManager
+    globalPointManager.addPoint(std::move(point));
 }
+
 
 void readingFiles::readPointsFromFile(const std::string& filename) {
     std::ifstream file("points_pack_1.txt");

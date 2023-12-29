@@ -1,6 +1,6 @@
 #include "GlobalObjects.h"
 
-PointFactory globalPointFactory; // The actual instance
+PointFactory globalPointFactory;
 PointManager globalPointManager;
 VehicleFactory globalVehicleFactory;
 VehicleManager globalVehicleManager;

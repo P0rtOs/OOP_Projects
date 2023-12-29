@@ -1,2 +1,5 @@
-﻿  tickerClass.cpp
+﻿  connectionClass.cpp
+  fileManager.cpp
+  movementStrategyClass.cpp
+  Generating Code...
   LAB1.vcxproj -> C:\Users\alext\OneDrive\Desktop\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe
