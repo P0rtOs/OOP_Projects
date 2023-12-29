@@ -1,4 +1,5 @@
 #include "pointClass.h"
+
 #include "globalObjects.h"
 
 #include <iostream>
@@ -17,7 +18,7 @@ Point::Point(int pointId, double pointX, double pointY) {
 	this->setPointX(pointX);
 	this->setPointY(pointY);
 	this->setPointType(static_cast<PointType>(rand() % static_cast<int>(PointType::Last)));
-	std::cout << "Point (id #" << getPointId() << ") created on coordinates (" << getPointX() << "," << getPointY() << ").\n";
+	//std::cout << "Point (id #" << getPointId() << ") created on coordinates (" << getPointX() << "," << getPointY() << ").\n";
 
 }
 
@@ -29,7 +30,7 @@ Point::Point(int pointId, double pointX, double pointY, std::vector<Connection*>
 	this->setPointY(pointY);
 	this->setNeighbor(connections);
 	this->setPointType(static_cast<PointType>(rand() % static_cast<int>(PointType::Last)));
-	std::cout << "Point (id #" << getPointId() << ") created on coordinates ( " << getPointX() << "," << getPointY() << ") with connections.\n";
+	//std::cout << "Point (id #" << getPointId() << ") created on coordinates ( " << getPointX() << "," << getPointY() << ") with connections.\n";
 
 }
 
@@ -39,7 +40,7 @@ Point::Point(int pointId, double pointX, double pointY, PointType pointType) {
 	this->setPointX(pointX);
 	this->setPointY(pointY);
 	this->setPointType(pointType);
-	std::cout << "Point (id #" << getPointId() << ") created on coordinates (" << getPointX() << "," << getPointY() << ").\n";
+	//std::cout << "Point (id #" << getPointId() << ") created on coordinates (" << getPointX() << "," << getPointY() << ").\n";
 
 }
 
@@ -51,7 +52,7 @@ Point::Point(int pointId, double pointX, double pointY, PointType pointType, std
 	this->setPointY(pointY);
 	this->setPointType(pointType);
 	this->setNeighbor(connections);
-	std::cout << "Point (id #" << getPointId() << ") created on coordinates ( " << getPointX() << "," << getPointY() << ") with connections.\n";
+	//std::cout << "Point (id #" << getPointId() << ") created on coordinates ( " << getPointX() << "," << getPointY() << ") with connections.\n";
 
 }
 

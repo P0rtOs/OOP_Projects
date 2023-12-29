@@ -5,6 +5,7 @@
 #include <queue>
 #include <limits>
 
+
 bool isConnected(int pointId1, int pointId2) {
     Point* point1 = globalPointManager.getPoint(pointId1);
     if (point1) {
@@ -113,7 +114,7 @@ Point* StandartCarMovingStrategy::returnStartingPoint() {
     if (!points.empty()) {
         int randomIndex = std::rand() % points.size();
         Point* startPoint = points[randomIndex].get();
-        std::cout << "Standard Car assigned to start at point ID: " << startPoint->getPointId() << "\n\n";
+        std::cout << "Standard Car assigned to start at point (id #" << startPoint->getPointId() << "). (\"" << startPoint->getPointType() << "\")\n\n";
         return startPoint;
     }
     else {
@@ -135,7 +136,6 @@ Point* TruckMovingStrategy::returnRandomDestination(int currentPointId) {
         return nullptr; // No valid destination
     }
 
-    // Filter points to include only PostOffice and House types
     std::vector<Point*> filteredPoints;
     for (const auto& point : points) {
         PointType type = point->getPointType();
@@ -188,7 +188,7 @@ Point* TruckMovingStrategy::returnStartingPoint() {
     }
 
     if (startPoint) {
-        std::cout << "Truck assigned to start at point ID: " << startPoint->getPointId() << "\n\n";
+        std::cout << "Truck assigned to start at point ID (id #" << startPoint->getPointId() << "). (\"" << startPoint->getPointType() << "\")\n\n";
     }
     else {
         std::cout << "No Post Office or House found. Defaulting to point ID 0." << "\n\n";
@@ -214,7 +214,7 @@ Point* SchoolBusMovingStrategy::returnStartingPoint() {
     }
 
     if (school) {
-        std::cout << "School Bus assigned to start at point ID: " << school->getPointId() << "\n\n";
+        std::cout << "School Bus assigned to start at point (id #" << school->getPointId() << "). (\"" << school->getPointType() << "\")\n\n";
     }
     else {
         std::cerr << "Warning: No starting point found for School Bus." << "\n\n";
@@ -288,6 +288,3 @@ Point* SchoolBusMovingStrategy::findRandomSchool() {
 
     return nullptr; // No schools found
 }
-
-
-// TODO: Написать алгоритмы как будут перемещаться разные типы машин ( стандартный, грузовик, тд )  

@@ -3,7 +3,7 @@
 #include <iostream>
 
 Connection::Connection(int neighborId, int ticks, double weightLimit) : neighborId(neighborId), ticksToTraverse(ticks), weightLimit(weightLimit) {
-	std::cout << "Connection to " << getNeighborId() << " created (ticksToTraverse: " << getTicksToTraverse() << ", weightLimit: " << getWeightLimit() << ").\n";
+	//std::cout << "Connection to " << getNeighborId() << " created (ticksToTraverse: " << getTicksToTraverse() << ", weightLimit: " << getWeightLimit() << ").\n";
 }
 
 void Connection::setNeighborId(int idToSet)

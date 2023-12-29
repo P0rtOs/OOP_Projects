@@ -22,7 +22,7 @@ void Manager::startTestSimulation()
 {
 
 
-    readingInterface.readPointsFromFile("lox");
+    readingInterface.readPointsFromFile("points_pack_1");
 
     /*auto point0 = globalPointFactory.createPoint(0, 2, 3);
     auto point1 = globalPointFactory.createPoint(1, 4, 5);
@@ -60,7 +60,7 @@ void Manager::startTestSimulation()
 
     while (true) {
         ticker.tick();  // Perform a simulation tick
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1500));
         if (userPressedStopButton()) {
             break;
         }

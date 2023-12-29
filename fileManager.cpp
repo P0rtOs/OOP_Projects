@@ -17,7 +17,7 @@ void handlePointCreation(int id, int x, int y, const std::vector<int>& neighborI
 
 
 void readingFiles::readPointsFromFile(const std::string& filename) {
-    std::ifstream file("points_pack_1.txt");
+    std::ifstream file(filename + ".txt");
     if (!file.is_open()) {
         std::cerr << "Unable to open the file: " << filename << std::endl;
         return;

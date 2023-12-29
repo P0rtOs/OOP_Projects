@@ -1,5 +1,6 @@
 #pragma once
 #include "connectionClass.h"
+#include "pointType.h"
 
 #include <vector>
 #include <memory>
@@ -7,14 +8,6 @@
 
 using std::vector;
 
-enum class PointType {
-	PostOffice,
-	House,
-	Hospital,
-	PoliceStation,
-	School,
-	Last
-};
 
 
 class Point {

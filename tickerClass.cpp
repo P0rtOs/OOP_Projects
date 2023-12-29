@@ -11,11 +11,10 @@ void Ticker::unregisterObserver(Observer* obs) {
 }
 
 void Ticker::tick() {
-	for (Observer* obs : observers) {
-		std::cout << obs->currentStatus() << std::endl;
-		obs->update();
-		
-	}
 	std::cout << "\n-----------Tick #" << tickNumber << "-----------------\n";
+	for (Observer* obs : observers) {
+		obs->update();
+		std::cout << obs->currentStatus() << std::endl;
+	}
 	tickNumber++;
 }

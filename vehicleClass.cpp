@@ -5,29 +5,6 @@
 #include <string>
 #include <algorithm>
 
-std::ostream& operator<<(std::ostream& os, PointType pointType) {
-	switch (pointType) {
-	case PointType::PostOffice:
-		os << "PostOffice";
-		break;
-	case PointType::House:
-		os << "House";
-		break;
-	case PointType::Hospital:
-		os << "Hospital";
-		break;
-	case PointType::PoliceStation:
-		os << "PoliceStation";
-		break;
-	case PointType::School:
-		os << "School";
-		break;
-	default:
-		os << "UnknownType";
-		break;
-	}
-	return os;
-}
 
 
 Connection* findConnection(int pointAId, int pointBId) {
@@ -101,10 +78,10 @@ void Vehicle::setLocationState(LocationState state) {
 std::string Vehicle::currentStatus() {
 	std::string locationInfo;
 	if (currentState == AT_POINT) {
-		locationInfo = getVehicleType() + " (id #" + std::to_string(getVehicleId()) + ") waiting at point (id #" + std::to_string(currentPointId) + "). Waited for " + std::to_string(ticksAtCurrentPoint) + " tick(s).";
+		locationInfo = getVehicleType() + " (id #" + std::to_string(getVehicleId()) + ") waiting at point (id #" + std::to_string(currentPointId) + "). Waited for " + std::to_string(ticksAtCurrentPoint) + " tick(s).\n";
 	}
 	else if (currentState == ON_ROAD) {
-		locationInfo = getVehicleType() + " (id #" + std::to_string(getVehicleId()) + ") moving to point (id #" + std::to_string(currentRoad->getNeighborId()) + "). Ticks remaining: " + std::to_string(ticksRemaining) + " tick(s).";
+		locationInfo = getVehicleType() + " (id #" + std::to_string(getVehicleId()) + ") moving to point (id #" + std::to_string(currentRoad->getNeighborId()) + "). Ticks remaining: " + std::to_string(ticksRemaining) + " tick(s).\n";
 	}
 	return locationInfo;
 }
@@ -112,7 +89,6 @@ std::string Vehicle::currentStatus() {
 void Vehicle::update() {
 	if (!path.empty() && currentPathIndex < path.size()) {
 		if (currentState == AT_POINT) {
-			ticksAtCurrentPoint++;
 			if (canDepartFromPoint()) {
 				moveToNextPointOnPath();
 			}
@@ -126,8 +102,8 @@ void Vehicle::update() {
 		}
 	}
 	else if (path.empty()) {
-		ticksAtCurrentPoint++;
-		std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") path empty - finding new path" << std::endl;
+		
+		std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") path empty - finding new path" << "\n";
 		if (movementStrategy != nullptr) {
 			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
 			if (destination != nullptr) {
@@ -142,6 +118,7 @@ void Vehicle::update() {
 			std::cerr << "Error: movementStrategy is null.\n";
 		}
 	}
+	ticksAtCurrentPoint++;
 }
 
 void Vehicle::moveToNextPointOnPath() { // Покидаем точку и становимся на дорогу к следующей точке

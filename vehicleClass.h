@@ -76,7 +76,6 @@ public:
 
 class SchoolBus : public Vehicle {
 private:
-    bool headingToSchool;  // Flag to indicate if the next destination is the school
 
 public:
     SchoolBus(int vehicleId);
