@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include "Manager.h"
-// GlobalObjects.cpp
 
 
 

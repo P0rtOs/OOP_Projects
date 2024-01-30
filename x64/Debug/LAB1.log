@@ -1,4 +1,16 @@
-﻿  Manager.cpp
+﻿  connectionClass.cpp
   fileManager.cpp
-  Generating Code...
-  LAB1.vcxproj -> C:\Users\alext\OneDrive\Desktop\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe
+  globalObjects.cpp
+  main.cpp
+  Manager.cpp
+  movementStrategyClass.cpp
+  pointClass.cpp
+  pointFactory.cpp
+  pointManager.cpp
+  pointType.cpp
+  tickerClass.cpp
+  vehicleClass.cpp
+  vehicleFactory.cpp
+  vehicleManager.cpp
+  Создание кода...
+  LAB1.vcxproj -> L:\shoto\LABS\sem3\OOP_Projects\x64\Debug\OOP_PMC_IASA.exe

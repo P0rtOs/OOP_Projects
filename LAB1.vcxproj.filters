@@ -50,6 +50,9 @@
     <Filter Include="Classes\pointLogic\pointType">
       <UniqueIdentifier>{d6bfdbe4-f9e8-40a5-927e-32cbe0b493b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\GUI">
+      <UniqueIdentifier>{9986a982-0842-4239-98e1-9c3a7901440f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -94,6 +97,9 @@
     <ClCompile Include="pointType.cpp">
       <Filter>Classes\pointLogic\pointType</Filter>
     </ClCompile>
+    <ClCompile Include="QT_GUI.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pointClass.h">
@@ -135,5 +141,6 @@
     <ClInclude Include="pointType.h">
       <Filter>Classes\pointLogic\pointType</Filter>
     </ClInclude>
+    <ClInclude Include="QT_GUI.h" />
   </ItemGroup>
 </Project>
