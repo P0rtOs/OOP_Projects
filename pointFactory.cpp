@@ -7,7 +7,7 @@ std::unique_ptr<Point> PointFactory::createPoint(int pointId, double x, double y
 }
 
 std::unique_ptr<Point> PointFactory::createPoint(int pointId, double x, double y, std::vector<std::unique_ptr<Connection>>& connections) {
-    // Create a Point and pass the connections
+
     std::cout << "Point (id #" << pointId << ") created (" << x << "," << y << "). Connections: \n";
     for (const auto& connection : connections) {
         std::cout << "    to point (id #" << connection->getNeighborId()

@@ -28,5 +28,3 @@ std::vector<Vehicle*>& VehicleManager::getVehicles(){
     return vehicles;
 }
 
-
-// TODO: ѕродумать как очищать пам€ть машин и точек, что еще должен делать менеджер машин? 

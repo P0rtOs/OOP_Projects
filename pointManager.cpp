@@ -4,7 +4,7 @@
 
 
 void PointManager::addPoint(std::unique_ptr<Point> point) {
-    points.push_back(std::move(point));  // Use std::move to transfer ownership
+    points.push_back(std::move(point));  
 }
 
 void PointManager::removePoint(int pointId) {
@@ -18,13 +18,13 @@ void PointManager::removePoint(int pointId) {
 Point* PointManager::getPoint(int pointId) {
     for (const auto& p : points) {
         if (p->getPointId() == pointId) {
-            return p.get();  // get() returns the raw pointer
+            return p.get();  
         }
     }
-    return nullptr;  // Or throw an exception if appropriate
+    return nullptr;  
 }
 
-// Тута вже не потрібно переписувати логіку
+
 std::vector<std::unique_ptr<Point>>& PointManager::getAllPoints() {
     return points;
 }
