@@ -1,16 +1,24 @@
-#pragma once
-#include "fileManager.h"
+﻿#pragma once
+
+#include <QThread>
+#include "fileManagerClass.h"
 #include "pointClass.h"
 #include "vehicleClass.h"
+#include "tickerClass.h"
 
-class Manager
+class Manager : public QThread
 {
-private:
-    Ticker ticker;
-    readingFiles readingInterface;
+    Q_OBJECT
+
 public:
     Manager() = default;
     ~Manager() = default;
-    void startTestSimulation();
+    void run() override;
+    void startSimulation();
     void endSimulation();
+
+private:
+    Ticker ticker;
+    readingFiles readingInterface;
+    bool running = false;
 };

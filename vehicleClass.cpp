@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 
 #include "vehicleClass.h"
 #include "globalObjects.h"
@@ -102,7 +102,7 @@ void Vehicle::update() {
 		}
 	}
 	else if (path.empty()) {
-		
+
 		std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") path empty - finding new path" << "\n";
 		if (movementStrategy != nullptr) {
 			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
@@ -121,7 +121,7 @@ void Vehicle::update() {
 	ticksAtCurrentPoint++;
 }
 
-void Vehicle::moveToNextPointOnPath() { // Покидаем точку и становимся на дорогу к следующей точке
+void Vehicle::moveToNextPointOnPath() { // РџРѕРєРёРґР°РµРј С‚РѕС‡РєСѓ Рё СЃС‚Р°РЅРѕРІРёРјСЃСЏ РЅР° РґРѕСЂРѕРіСѓ Рє СЃР»РµРґСѓСЋС‰РµР№ С‚РѕС‡РєРµ
 	currentPathIndex++;
 	Point* nextPoint = path[currentPathIndex];
 	this->setLocationState(ON_ROAD);
@@ -137,8 +137,8 @@ void Vehicle::onArrivalToPoint() {
 	this->ticksRemaining = 0;
 	this->ticksAtCurrentPoint = 0;
 
-	if(currentPathIndex == path.size() - 1) {
-		std::cout << getVehicleType() << " (id #" << this->getVehicleId() <<") arrived at final destination - waiting\n";
+	if (currentPathIndex == path.size() - 1) {
+		std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") arrived at final destination - waiting\n";
 		this->path.clear();
 		this->currentRoad = nullptr;
 		this->currentPathIndex = 0;
@@ -172,7 +172,7 @@ Truck::Truck() {
 	std::cout << "Truck created using default constructor. This is definitely a bug.\n";
 	movementStrategy = new StandartCarMovingStrategy();
 	this->setVehiclePoint(movementStrategy->returnStartingPoint()->getPointId());
-} // конструткор по стандарту для цілі вантажівки, можливо якийсь центр логістики
+} // РєРѕРЅСЃС‚СЂСѓС‚РєРѕСЂ РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ РґР»СЏ С†С–Р»С– РІР°РЅС‚Р°Р¶С–РІРєРё, РјРѕР¶Р»РёРІРѕ СЏРєРёР№СЃСЊ С†РµРЅС‚СЂ Р»РѕРіС–СЃС‚РёРєРё
 
 Truck::Truck(int vehicleId) : Vehicle(vehicleId, "Truck")
 {

@@ -1,11 +1,11 @@
-#pragma once
+﻿#pragma once
 #ifndef GLOBAL_OBJECTS_H
 #define GLOBAL_OBJECTS_H
 
-#include "pointFactory.h"
-#include "vehicleFactory.h"
-#include "vehicleManager.h"
-#include "pointManager.h"
+#include "pointFactoryClass.h"
+#include "vehicleFactoryClass.h"
+#include "vehicleManagerClass.h"
+#include "pointManagerClass.h"
 
 extern PointFactory globalPointFactory;
 extern PointManager globalPointManager;

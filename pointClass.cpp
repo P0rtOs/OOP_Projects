@@ -1,4 +1,4 @@
-#include "pointClass.h"
+﻿#include "pointClass.h"
 
 #include "globalObjects.h"
 
@@ -6,10 +6,10 @@
 
 using std::vector;
 
-Point::Point() : pointId(-1)  {
+Point::Point() : pointId(-1) {
 	neighbors = std::vector<std::unique_ptr<Connection>>(); // Proper initialization
 	std::cout << "Point created using default constuctor. This is probably a bug. Possibly. Definitely.\n";
-	
+
 }
 
 Point::Point(int pointId, double pointX, double pointY) {

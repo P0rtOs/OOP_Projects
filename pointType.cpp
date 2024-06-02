@@ -1,4 +1,4 @@
-#include "pointType.h"
+﻿#include "pointType.h"
 
 std::ostream& operator<<(std::ostream& os, PointType pointType) {
     switch (pointType) {

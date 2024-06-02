@@ -18,7 +18,7 @@ bool isConnected(int pointId1, int pointId2) {
     return false;
 }
 
-MovementStrategy::MovementStrategy(){
+MovementStrategy::MovementStrategy() {
     std::cout << "Created Movement Strategy instance. It should be created paralel to each vehicle." << std::endl;
 }
 
@@ -118,7 +118,7 @@ Point* StandartCarMovingStrategy::returnStartingPoint() {
         return startPoint;
     }
     else {
-        std::cerr << "Warning: No starting point found for Standard Car. Defaulting to point ID 0." <<"\n\n";
+        std::cerr << "Warning: No starting point found for Standard Car. Defaulting to point ID 0." << "\n\n";
         return globalPointManager.getPoint(0);
     }
 }
