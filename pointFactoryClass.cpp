@@ -6,6 +6,10 @@ std::unique_ptr<Point> PointFactory::createPoint(int pointId, double x, double y
     return std::make_unique<Point>(pointId, x, y);
 }
 
+std::unique_ptr<Point> PointFactory::createPoint(int pointId, double x, double y, PointType pointType) {
+    return std::make_unique<Point>(pointId, x, y, pointType);
+}
+
 std::unique_ptr<Point> PointFactory::createPoint(int pointId, double x, double y, std::vector<std::unique_ptr<Connection>>& connections) {
     // Create a Point and pass the connections
     std::cout << "Point (id #" << pointId << ") created (" << x << "," << y << "). Connections: \n";

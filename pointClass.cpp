@@ -125,6 +125,16 @@ void Point::addNeighbor(int neighborId, int ticks, double weightLimit) {
 	}
 }
 
+void Point::removeNeighbor(int neighborId)
+{
+	auto it = std::remove_if(neighbors.begin(), neighbors.end(),
+		[neighborId](const std::unique_ptr<Connection>& conn) { return conn->getNeighborId() == neighborId; });
+	if (it != neighbors.end()) {
+		neighbors.erase(it, neighbors.end());
+	}
+}
+
+
 void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
 	neighbors.clear();
 	for (const auto* conn : connectionsToSet) {

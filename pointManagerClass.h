@@ -17,4 +17,6 @@ public:
     void removePoint(int pointId);
     Point* getPoint(int pointId);
     std::vector<std::unique_ptr<Point>>& getAllPoints();
+    std::vector<Point*> getNearestPoints(double x, double y, int count);  // New method
+    std::vector<Point*> getAccessiblePoints(int startPointId);
 };

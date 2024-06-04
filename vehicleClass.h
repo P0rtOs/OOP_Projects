@@ -29,6 +29,7 @@ private:
     void moveToNextPointOnPath();
     void onArrivalToPoint();
     int ticksAtCurrentPoint = 0;
+    int stuckAtSamePointTicks;  // New member variable
 
 public:
     Vehicle();
@@ -42,6 +43,9 @@ public:
     void setVehiclePoint(int newPointId);
     void setVehicleRoad(Connection* newConnection);
     void setLocationState(LocationState state);
+    LocationState getLocationState();
+    std::vector<Point*>& getPath();
+    int getTicksRemaining();
     //void setDestinationPoint(int newDestinationId);
     std::string getVehicleType();
     void setPath(const std::vector<Point*>& newPath);
@@ -79,4 +83,5 @@ private:
 
 public:
     SchoolBus(int vehicleId);
+    SchoolBus(int vehicleId, std::string vehicleType);
 };

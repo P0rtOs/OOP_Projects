@@ -90,6 +90,18 @@
     <Filter Include="Source Files\ModelClasses\pointTypeClass">
       <UniqueIdentifier>{b3586184-e509-4fd7-8f7d-63190bb851d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ViewClasses\PointPropertiesDialogClass">
+      <UniqueIdentifier>{5b2def33-9c14-456a-8c54-ffed25aabd1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\CarPropertiesDialogClass">
+      <UniqueIdentifier>{b31faeb4-365c-4a90-84c4-8a7aa6ebd79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\PointCreationDialogClass">
+      <UniqueIdentifier>{646913ca-739d-4638-b75c-1e4e3c903729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\CarCreationDialogClass">
+      <UniqueIdentifier>{51fa1467-57bf-4144-8097-17ddca72c31b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="OOP_PMC_IASA_GUI.qrc">
@@ -163,6 +175,18 @@
     <ClCompile Include="PointItem.cpp">
       <Filter>Source Files\ViewClasses\PointItem</Filter>
     </ClCompile>
+    <ClCompile Include="PointPropertiesDialog.cpp">
+      <Filter>Source Files\ViewClasses\PointPropertiesDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="CarPropertiesDialog.cpp">
+      <Filter>Source Files\ViewClasses\CarPropertiesDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="PointCreationDialog.cpp">
+      <Filter>Source Files\ViewClasses\PointCreationDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="CarCreationDialog.cpp">
+      <Filter>Source Files\ViewClasses\CarCreationDialogClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="OOP_PMC_IASA_GUI.h">
@@ -182,6 +206,18 @@
     </QtMoc>
     <QtMoc Include="PointItem.h">
       <Filter>Source Files\ViewClasses\PointItem</Filter>
+    </QtMoc>
+    <QtMoc Include="PointPropertiesDialog.h">
+      <Filter>Source Files\ViewClasses\PointPropertiesDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="CarPropertiesDialog.h">
+      <Filter>Source Files\ViewClasses\CarPropertiesDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="PointCreationDialog.h">
+      <Filter>Source Files\ViewClasses\PointCreationDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="CarCreationDialog.h">
+      <Filter>Source Files\ViewClasses\CarCreationDialogClass</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="GraphicsItemTypes.h">
       <Filter>Source Files\ViewClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Source Files\ControllerClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

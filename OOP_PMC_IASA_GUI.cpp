@@ -7,7 +7,23 @@
 #include "SimulationController.h"
 
 
-OOP_PMC_IASA_GUI::OOP_PMC_IASA_GUI(QWidget *parent)
+//OOP_PMC_IASA_GUI::OOP_PMC_IASA_GUI(QWidget *parent)
+//    : QMainWindow(parent), workspace(new Workspace(this)), sidebar(new Sidebar(this))
+//{
+//    ui.setupUi(this);
+//    setupUI();
+//
+//    SimulationController* controller = new SimulationController(workspace, sidebar, this);
+//
+//    
+//
+//    // Connect sidebar signals to controller slots
+//    connect(sidebar, &Sidebar::createPointClicked, controller, &SimulationController::createPoint);
+//    connect(sidebar, &Sidebar::createVehicleClicked, controller, &SimulationController::createVehicle);
+//    //connect(sidebar, &Sidebar::createConnectionClicked, controller, &SimulationController::createConnection);
+//}
+
+OOP_PMC_IASA_GUI::OOP_PMC_IASA_GUI(QWidget* parent)
     : QMainWindow(parent), workspace(new Workspace(this)), sidebar(new Sidebar(this))
 {
     ui.setupUi(this);
@@ -15,11 +31,14 @@ OOP_PMC_IASA_GUI::OOP_PMC_IASA_GUI(QWidget *parent)
 
     SimulationController* controller = new SimulationController(workspace, sidebar, this);
 
+    setCentralWidget(workspace);
+
     // Connect sidebar signals to controller slots
-    connect(sidebar, &Sidebar::createPointClicked, controller, &SimulationController::createPoint);
-    connect(sidebar, &Sidebar::createVehicleClicked, controller, &SimulationController::createVehicle);
-    connect(sidebar, &Sidebar::createConnectionClicked, controller, &SimulationController::createConnection);
+    //connect(sidebar, &Sidebar::createPointClicked, controller, &SimulationController::createPoint);
+    //connect(sidebar, &Sidebar::createVehicleClicked, controller, &SimulationController::createVehicle);
+    //connect(sidebar, &Sidebar::createConnectionClicked, controller, &SimulationController::createConnection);
 }
+
 
 OOP_PMC_IASA_GUI::~OOP_PMC_IASA_GUI()
 {}

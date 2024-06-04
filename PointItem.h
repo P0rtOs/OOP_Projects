@@ -2,24 +2,23 @@
 
 #include <QGraphicsObject>
 #include <QGraphicsScene>
-#include <QObject>
+#include <QGraphicsItem>
+#include <QPixmap>
 
 #include "GraphicsItemTypes.h"
-
-class RoadItem;
+#include "pointType.h"
 
 class PointItem : public QGraphicsObject
 {
     Q_OBJECT
 
 public:
-    PointItem(int id, double x, double y);
+    PointItem(int id, double x, double y, PointType pointType, QGraphicsItem* parent = nullptr);
 
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
     int getId() const;
-    void setId(int newId);  // Method to set the ID
     double getX() const;
     double getY() const;
 
@@ -35,4 +34,10 @@ protected:
 private:
     int id;
     double x, y;
+    PointType pointType;
+    QPixmap pointSprite;
+    QColor shadowColor;
+
+    void loadSprite();
+    void drawShadow(QPainter* painter);  // New method to draw shadow
 };

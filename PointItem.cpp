@@ -1,39 +1,17 @@
 ﻿#include "PointItem.h"
+#include "pointClass.h"
 #include <QPainter>
-#include <QGraphicsSceneMouseEvent>
 
-PointItem::PointItem(int id, double x, double y)
-    : id(id), x(x), y(y)
+PointItem::PointItem(int id, double x, double y, PointType pointType, QGraphicsItem* parent)
+    : QGraphicsObject(parent), id(id), x(x), y(y), pointType(pointType), shadowColor(Qt::darkGray)
 {
-    setFlag(ItemIsMovable);
-    setFlag(ItemIsSelectable);
-    setFlag(ItemSendsGeometryChanges);
     setPos(x, y);
-}
-
-QRectF PointItem::boundingRect() const
-{
-    return QRectF(-15, -15, 30, 30);
-}
-
-void PointItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
-{
-    painter->setBrush(isSelected() ? Qt::red : Qt::blue);
-    painter->drawEllipse(-10, -10, 20, 20);
-
-    painter->setPen(Qt::white);
-    painter->drawText(boundingRect(), Qt::AlignCenter, QString::number(id));
+    loadSprite();
 }
 
 int PointItem::getId() const
 {
     return id;
-}
-
-void PointItem::setId(int newId)
-{
-    id = newId;
-    update();  // Redraw the item with the new ID
 }
 
 double PointItem::getX() const
@@ -46,14 +24,64 @@ double PointItem::getY() const
     return y;
 }
 
+QRectF PointItem::boundingRect() const
+{
+    return QRectF(-pointSprite.width() / 2, -pointSprite.height() / 2, pointSprite.width(), pointSprite.height());
+}
 
+
+void PointItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
+{
+    // Draw the shadow
+    QPen pen(Qt::NoPen);
+    painter->setPen(pen);
+    painter->setBrush(QBrush(Qt::darkGray));
+    painter->drawEllipse(-pointSprite.width() / 2 * 1.8, pointSprite.height() / 2 - 30, pointSprite.width()*1.8, pointSprite.height() / 2);
+
+    // Draw the sprite
+    painter->drawPixmap(-pointSprite.width() / 2, -pointSprite.height() / 2, pointSprite);
+}
+
+//void PointItem::drawShadow(QPainter* painter)
+//{
+//    // Define the shadow properties
+//    QPointF shadowOffset(0, 10);  // Offset of the shadow to the bottom
+//    QSize shadowSize(pointSprite.width() * 0.6, pointSprite.height() * 0.3);  // Shadow size (adjust as needed)
+//
+//    painter->setBrush(QBrush(shadowColor));
+//    painter->setPen(Qt::NoPen);
+//    painter->drawEllipse(QPointF(-shadowSize.width() / 2, -shadowSize.height() / 2) + shadowOffset, shadowSize.width() / 2, shadowSize.height() / 2);
+//}
+
+void PointItem::loadSprite()
+{
+    QPixmap originalPixmap;
+    if (pointType == PointType::PostOffice || pointType == PointType::School) {
+        originalPixmap = QPixmap("./sprites/city1.png");
+    }
+    else if (pointType == PointType::House || pointType == PointType::Hospital) {
+        originalPixmap = QPixmap("./sprites/city2.png");
+    }
+    else if (pointType == PointType::PoliceStation) {
+        originalPixmap = QPixmap("./sprites/city3.png");
+    }
+    else {
+        originalPixmap = QPixmap("./sprites/city1.png");  // Default sprite
+    }
+
+    if (!originalPixmap.isNull()) {
+        pointSprite = originalPixmap.scaled(originalPixmap.width(), originalPixmap.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    }
+
+    setTransformOriginPoint(boundingRect().center());
+}
 
 QVariant PointItem::itemChange(GraphicsItemChange change, const QVariant& value)
 {
     if (change == ItemPositionChange) {
         emit positionChanged(id, value.toPointF());
     }
-    return QGraphicsObject::itemChange(change, value); // Use QGraphicsObject instead of QGraphicsItem
+    return QGraphicsItem::itemChange(change, value);
 }
 
 void PointItem::mousePressEvent(QGraphicsSceneMouseEvent* event)

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <queue>
 #include <limits>
+#include <unordered_map>
 
 
 bool isConnected(int pointId1, int pointId2) {
@@ -24,24 +25,29 @@ MovementStrategy::MovementStrategy() {
 
 std::vector<Point*> MovementStrategy::dijkstraShortestPath(int sourceId, int targetId, Vehicle& vehicle) {
     const auto& allPoints = globalPointManager.getAllPoints();
+    std::unordered_map<int, int> idToIndex;
+    for (size_t i = 0; i < allPoints.size(); ++i) {
+        idToIndex[allPoints[i]->getPointId()] = static_cast<int>(i);
+    }
+
     std::vector<double> distance(allPoints.size(), std::numeric_limits<double>::infinity());
     std::vector<int> predecessor(allPoints.size(), -1);
-    distance[sourceId] = 0.0;
+    distance[idToIndex[sourceId]] = 0.0;
 
     std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>> pq;
-    pq.push({ 0.0, sourceId });
+    pq.push({ 0.0, idToIndex[sourceId] });
 
     while (!pq.empty()) {
         int u = pq.top().second;
         pq.pop();
 
-        if (u == targetId) break;
+        if (allPoints[u]->getPointId() == targetId) break;
 
         for (const auto& connection : allPoints[u]->getNeighbors()) {
-            int v = connection->getNeighborId();
+            int v = idToIndex[connection->getNeighborId()];
             double weight = static_cast<double>(connection->getTicksToTraverse());
 
-            if (isConnected(u, v)) {
+            if (isConnected(allPoints[u]->getPointId(), allPoints[v]->getPointId())) {
                 if (distance[v] > distance[u] + weight) {
                     distance[v] = distance[u] + weight;
                     predecessor[v] = u;
@@ -52,13 +58,13 @@ std::vector<Point*> MovementStrategy::dijkstraShortestPath(int sourceId, int tar
     }
 
     std::vector<Point*> shortestPath;
-    for (int at = targetId; at != -1; at = predecessor[at]) {
+    for (int at = idToIndex[targetId]; at != -1; at = predecessor[at]) {
         shortestPath.push_back(allPoints[at].get());  // Accessing the raw pointer
     }
     std::reverse(shortestPath.begin(), shortestPath.end());
 
     if (shortestPath.empty() || shortestPath.front()->getPointId() != sourceId) {
-        Point* startPoint = allPoints[sourceId].get();
+        Point* startPoint = allPoints[idToIndex[sourceId]].get();
         if (startPoint) {
             shortestPath.insert(shortestPath.begin(), startPoint);
         }
@@ -82,32 +88,14 @@ std::string StandartCarMovingStrategy::returnStrategyType() {
 
 
 Point* StandartCarMovingStrategy::returnRandomDestination(int currentPointId) {
-    const auto& points = globalPointManager.getAllPoints();
-    if (points.size() <= 1) {
-        return nullptr;  // Return null if there are no points or only one point
-    }
+    auto accessiblePoints = globalPointManager.getAccessiblePoints(currentPointId);
+    if (accessiblePoints.empty()) return nullptr;
 
-    // Seed the random number generator - typically done once at program start
-    static bool seeded = false;
-    if (!seeded) {
-        std::srand(static_cast<unsigned int>(std::time(nullptr)));
-        seeded = true;
-    }
-
-    int startId = currentPointId;  // Get the start point ID
-    Point* destination = nullptr;
-    do {
-        int randomIndex = std::rand() % points.size();
-        destination = points[randomIndex].get();
-
-        if (!destination || points.size() == 1) { // Null pointer or only one point
-            break;
-        }
-    } while (destination->getPointId() == startId);
-
-
-    return destination;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    int randomIndex = std::rand() % accessiblePoints.size();
+    return accessiblePoints[randomIndex];
 }
+
 
 Point* StandartCarMovingStrategy::returnStartingPoint() {
     const auto& points = globalPointManager.getAllPoints();
@@ -126,42 +114,31 @@ Point* StandartCarMovingStrategy::returnStartingPoint() {
 
 TruckMovingStrategy::TruckMovingStrategy() {}
 
+std::vector<Point*> getFilteredAccessiblePoints(int currentPointId, PointType type) {
+    auto accessiblePoints = globalPointManager.getAccessiblePoints(currentPointId);
+    std::vector<Point*> filteredPoints;
+    for (Point* point : accessiblePoints) {
+        if (point->getPointType() == type) {
+            filteredPoints.push_back(point);
+        }
+    }
+    return filteredPoints;
+}
+
 std::string TruckMovingStrategy::returnStrategyType() {
     return "Truck";
 }
 
 Point* TruckMovingStrategy::returnRandomDestination(int currentPointId) {
-    const auto& points = globalPointManager.getAllPoints();
-    if (points.size() <= 1) {
-        return nullptr; // No valid destination
+    auto filteredPoints = getFilteredAccessiblePoints(currentPointId, PointType::PostOffice);
+    if (filteredPoints.empty() || filteredPoints.front()->getPointId() == currentPointId) {
+        filteredPoints = getFilteredAccessiblePoints(currentPointId, PointType::House);
     }
+    if (filteredPoints.empty()) return nullptr;
 
-    std::vector<Point*> filteredPoints;
-    for (const auto& point : points) {
-        PointType type = point->getPointType();
-        if (type == PointType::PostOffice || type == PointType::House) {
-            filteredPoints.push_back(point.get());
-        }
-    }
-
-    if (filteredPoints.empty()) {
-        return nullptr; // No PostOffice or House found
-    }
-
-    // Randomly select a destination from filtered points
-    static bool seeded = false;
-    if (!seeded) {
-        std::srand(static_cast<unsigned int>(std::time(nullptr)));
-        seeded = true;
-    }
-
-    Point* destination = nullptr;
-    do {
-        int randomIndex = std::rand() % filteredPoints.size();
-        destination = filteredPoints[randomIndex];
-
-    } while (destination && destination->getPointId() == currentPointId);
-    return destination;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    int randomIndex = std::rand() % filteredPoints.size();
+    return filteredPoints[randomIndex];
 }
 
 Point* TruckMovingStrategy::findRandomPointOfType(PointType type) {
@@ -232,8 +209,13 @@ Point* SchoolBusMovingStrategy::returnRandomDestination(int currentPointId) {
         return school;
     }
     else {
+        auto houses = getFilteredAccessiblePoints(currentPointId, PointType::House);
+        if (houses.empty()) return nullptr;
+
         headingToSchool = true;
-        return returnRandomHouse();
+        std::srand(static_cast<unsigned int>(std::time(nullptr)));
+        int randomIndex = std::rand() % houses.size();
+        return houses[randomIndex];
     }
 }
 

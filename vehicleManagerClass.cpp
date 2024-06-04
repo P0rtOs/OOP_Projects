@@ -16,12 +16,18 @@ void VehicleManager::addVehicle(Vehicle* vehicle) {
 void VehicleManager::removeVehicle(Vehicle* vehicle) {
     auto it = std::find(vehicles.begin(), vehicles.end(), vehicle);
     if (it != vehicles.end()) {
-        // Optionally handle memory management, if needed
-        delete* it;  // Delete the vehicle if VehicleManager owns it
-
-        // Erase the vehicle from the vector
-        vehicles.erase(it);
+        vehicles.erase(it); // First erase from the vector
+        delete vehicle; // Then delete the vehicle
     }
+}
+
+Vehicle* VehicleManager::getVehicle(int id) {
+    for (Vehicle* vehicle : vehicles) {
+        if (vehicle->getVehicleId() == id) {
+            return vehicle;
+        }
+    }
+    return nullptr;  // Return nullptr if no vehicle with the given ID is found
 }
 
 std::vector<Vehicle*>& VehicleManager::getVehicles() {

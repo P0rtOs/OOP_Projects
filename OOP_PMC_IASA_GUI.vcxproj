@@ -92,16 +92,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CarCreationDialog.cpp" />
     <ClCompile Include="CarItem.cpp" />
+    <ClCompile Include="CarPropertiesDialog.cpp" />
     <ClCompile Include="connectionClass.cpp" />
     <ClCompile Include="fileManagerClass.cpp" />
     <ClCompile Include="globalObjects.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="movementStrategyClass.cpp" />
     <ClCompile Include="pointClass.cpp" />
+    <ClCompile Include="PointCreationDialog.cpp" />
     <ClCompile Include="pointFactoryClass.cpp" />
     <ClCompile Include="PointItem.cpp" />
     <ClCompile Include="pointManagerClass.cpp" />
+    <ClCompile Include="PointPropertiesDialog.cpp" />
     <ClCompile Include="pointType.cpp" />
     <ClCompile Include="RoadItem.cpp" />
     <ClCompile Include="Sidebar.cpp" />
@@ -124,12 +128,16 @@
     <QtMoc Include="Sidebar.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="CarCreationDialog.h" />
     <ClInclude Include="CarItem.h" />
+    <QtMoc Include="CarPropertiesDialog.h" />
     <ClInclude Include="connectionClass.h" />
     <ClInclude Include="fileManagerClass.h" />
     <ClInclude Include="globalObjects.h" />
     <ClInclude Include="GraphicsItemTypes.h" />
     <QtMoc Include="PointItem.h" />
+    <QtMoc Include="PointPropertiesDialog.h" />
+    <QtMoc Include="PointCreationDialog.h" />
     <ClInclude Include="pointType.h" />
     <QtMoc Include="Manager.h" />
     <ClInclude Include="movementStrategyClass.h" />
@@ -138,6 +146,7 @@
     <ClInclude Include="pointManagerClass.h" />
     <ClInclude Include="RoadItem.h" />
     <ClInclude Include="tickerClass.h" />
+    <ClInclude Include="utility.h" />
     <ClInclude Include="vehicleClass.h" />
     <ClInclude Include="vehicleFactoryClass.h" />
     <ClInclude Include="vehicleManagerClass.h" />

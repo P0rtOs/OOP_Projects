@@ -16,6 +16,7 @@ public:
     void run() override;
     void startSimulation();
     void endSimulation();
+    Ticker& getTicker();  // New method to get the Ticker reference
 
 private:
     Ticker ticker;

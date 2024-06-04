@@ -36,6 +36,7 @@ public:
 	void addConnection(int pointId, int ticks, double weightLimit);
 	void addConnection(std::unique_ptr<Connection> connection);
 	void addNeighbor(int neighborId, int ticks, double weightLimit);
+	void removeNeighbor(int neighborId);
 	bool hasConnection(int pointId) const;
 	vector<Connection*> getNeighbors();
 

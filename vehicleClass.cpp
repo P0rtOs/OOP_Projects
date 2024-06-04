@@ -26,7 +26,7 @@ Connection* findConnection(int pointAId, int pointBId) {
 
 Vehicle::Vehicle() : currentState(AT_POINT), currentPointId(0)
 {
-	std::cout << "Vehicle created using default constuctor. This is definitely a bug." << std::endl;
+	std::cout << "Vehicle created using default constructor. This is definitely a bug." << std::endl;
 }
 Vehicle::Vehicle(int vehicleId, std::string vehicleType) : currentState(AT_POINT)
 {
@@ -75,6 +75,20 @@ void Vehicle::setLocationState(LocationState state) {
 	this->currentState = state;
 }
 
+Vehicle::LocationState Vehicle::getLocationState() {
+	return currentState;
+}
+
+std::vector<Point*>& Vehicle::getPath()
+{
+	return path;
+}
+
+int Vehicle::getTicksRemaining()
+{
+	return ticksRemaining;
+}
+
 std::string Vehicle::currentStatus() {
 	std::string locationInfo;
 	if (currentState == AT_POINT) {
@@ -85,6 +99,42 @@ std::string Vehicle::currentStatus() {
 	}
 	return locationInfo;
 }
+
+//void Vehicle::update() {
+//	if (!path.empty() && currentPathIndex < path.size()) {
+//		if (currentState == AT_POINT) {
+//			if (canDepartFromPoint()) {
+//				moveToNextPointOnPath();
+//			}
+//		}
+//		else if (currentState == ON_ROAD) {
+//			--ticksRemaining;
+//			if (ticksRemaining <= 0) {
+//				currentState = AT_POINT;
+//				onArrivalToPoint();
+//			}
+//		}
+//	}
+//	else if (path.empty()) {
+//		if (movementStrategy != nullptr) {
+//			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
+//			if (destination != nullptr) {
+//				movementStrategy->dijkstraShortestPath(this->getCurrentPointId(), destination->getPointId(), *this);
+//			}
+//		}
+//		else {
+//			std::cerr << "Error: movementStrategy is null.\n";
+//		}
+//	}
+//	else {
+//		if (currentState == ON_ROAD && !globalPointManager.getPoint(currentRoad->getNeighborId())) {
+//			path.clear();
+//			currentState = AT_POINT;
+//			currentRoad = nullptr;
+//		}
+//	}
+//	ticksAtCurrentPoint++;
+//}
 
 void Vehicle::update() {
 	if (!path.empty() && currentPathIndex < path.size()) {
@@ -101,21 +151,32 @@ void Vehicle::update() {
 			}
 		}
 	}
-	else if (path.empty()) {
-
-		std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") path empty - finding new path" << "\n";
-		if (movementStrategy != nullptr) {
-			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
-			if (destination != nullptr) {
-				std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") found new path, destination - #" << destination->getPointId() << " (type: " << destination->getPointType() << ")\n";;
-				movementStrategy->dijkstraShortestPath(this->getCurrentPointId(), destination->getPointId(), *this);
-			}
-			else {
-				std::cerr << "No destination found\n";
+	else {
+		// Check if the vehicle is at the same point as its destination
+		if (!path.empty() && path[currentPathIndex]->getPointId() == currentPointId) {
+			stuckAtSamePointTicks++;
+			if (stuckAtSamePointTicks >= 3) {  // Wait for 3 ticks before reassigning a new destination
+				path.clear();  // Clear the path
 			}
 		}
 		else {
-			std::cerr << "Error: movementStrategy is null.\n";
+			std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") path empty - finding new path\n";
+			if (movementStrategy != nullptr) {
+				Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
+				if (destination != nullptr && destination->getPointId() != this->getCurrentPointId()) {
+					std::cout << getVehicleType() << " (id #" << this->getVehicleId() << ") found new path, destination - #" << destination->getPointId() << " (type: " << destination->getPointType() << ")\n";
+					movementStrategy->dijkstraShortestPath(this->getCurrentPointId(), destination->getPointId(), *this);
+					stuckAtSamePointTicks = 0;  // Reset the stuck counter
+				}
+			}
+			else {
+				std::cerr << "Error: movementStrategy is null.\n";
+			}
+		}
+		if (currentState == ON_ROAD && !globalPointManager.getPoint(currentRoad->getNeighborId())) {
+			path.clear();
+			currentState = AT_POINT;
+			currentRoad = nullptr;
 		}
 	}
 	ticksAtCurrentPoint++;
@@ -123,11 +184,24 @@ void Vehicle::update() {
 
 void Vehicle::moveToNextPointOnPath() { // Покидаем точку и становимся на дорогу к следующей точке
 	currentPathIndex++;
+	if (currentPathIndex >= path.size()) {
+		std::cerr << "Error: currentPathIndex out of range" << std::endl;
+		return;
+	}
+
 	Point* nextPoint = path[currentPathIndex];
 	this->setLocationState(ON_ROAD);
-	this->setVehicleRoad(findConnection(this->currentPointId, nextPoint->getPointId()));
-	this->ticksRemaining = findConnection(this->currentPointId, nextPoint->getPointId())->getTicksToTraverse();
+	Connection* connection = findConnection(this->currentPointId, nextPoint->getPointId());
 
+	if (connection) {
+		this->setVehicleRoad(connection);
+		this->ticksRemaining = connection->getTicksToTraverse();
+	}
+	else {
+		std::cerr << "Error: Connection not found" << std::endl;
+		this->ticksRemaining = 0;
+		this->setLocationState(AT_POINT);
+	}
 }
 
 void Vehicle::onArrivalToPoint() {
@@ -189,6 +263,11 @@ Truck::Truck(int vehicleId, std::string vehicleType) : Vehicle(vehicleId, vehicl
 
 SchoolBus::SchoolBus(int vehicleId) : Vehicle(vehicleId, "SchoolBus") {
 	this->setVehicleId(vehicleId);
+	movementStrategy = new SchoolBusMovingStrategy();
+	this->setVehiclePoint(movementStrategy->returnStartingPoint()->getPointId());
+}
+
+SchoolBus::SchoolBus(int vehicleId, std::string vehicleType) : Vehicle(vehicleId, vehicleType) {
 	movementStrategy = new SchoolBusMovingStrategy();
 	this->setVehiclePoint(movementStrategy->returnStartingPoint()->getPointId());
 }
