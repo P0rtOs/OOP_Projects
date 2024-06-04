@@ -1,0 +1,28 @@
+#pragma once
+
+#include <QGraphicsItem>
+#include <QPixmap>
+
+#include "GraphicsItemTypes.h"
+
+class Vehicle;
+
+class CarItem : public QGraphicsItem
+{
+public:
+    CarItem(int id, double x, double y, Vehicle* vehicle, QGraphicsItem* parent = nullptr);
+
+    int getId() const;
+    void updatePosition();
+    QRectF boundingRect() const override; 
+    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
+
+    int type() const override { return CarItemType; }
+
+private:
+    int id;
+    Vehicle* vehicle;
+    QPixmap carSprite;
+
+    void loadSprite();
+};

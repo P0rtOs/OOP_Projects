@@ -16,5 +16,5 @@ public:
 	void registerObserver(Observer* obs);
 	void unregisterObserver(Observer* obs);
 	void tick();
-	
+
 };

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOP_PMC_IASA_GUI", "OOP_PMC_IASA_GUI.vcxproj", "{F75E2D5B-104A-4A56-95D1-626B6931E770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F75E2D5B-104A-4A56-95D1-626B6931E770}.Debug|x64.ActiveCfg = Debug|x64
+		{F75E2D5B-104A-4A56-95D1-626B6931E770}.Debug|x64.Build.0 = Debug|x64
+		{F75E2D5B-104A-4A56-95D1-626B6931E770}.Release|x64.ActiveCfg = Release|x64
+		{F75E2D5B-104A-4A56-95D1-626B6931E770}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ACE04A0-9A94-43A7-B70A-A0C4EC936AF3}
+	EndGlobalSection
+EndGlobal

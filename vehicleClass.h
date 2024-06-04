@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
-#include "pointManager.h"
+#include "pointManagerClass.h"
 #include "tickerClass.h"
 #include "movementStrategyClass.h"
 #include "connectionClass.h"
@@ -22,13 +22,14 @@ private:
     int currentPointId = 0;
     //int destinationPointId;
     Connection* currentRoad;
-    
+
     int ticksRemaining = 0;
     int currentPathIndex = 0;
     std::vector<Point*> path;
     void moveToNextPointOnPath();
     void onArrivalToPoint();
     int ticksAtCurrentPoint = 0;
+    int stuckAtSamePointTicks;  // New member variable
 
 public:
     Vehicle();
@@ -42,6 +43,9 @@ public:
     void setVehiclePoint(int newPointId);
     void setVehicleRoad(Connection* newConnection);
     void setLocationState(LocationState state);
+    LocationState getLocationState();
+    std::vector<Point*>& getPath();
+    int getTicksRemaining();
     //void setDestinationPoint(int newDestinationId);
     std::string getVehicleType();
     void setPath(const std::vector<Point*>& newPath);
@@ -53,11 +57,11 @@ public:
 
     std::string currentStatus();
 
-        
+
 };
 
 class Car : public Vehicle
-{ // Базова одиниця без приоритетів чи особливостей.
+{ // Р‘Р°Р·РѕРІР° РѕРґРёРЅРёС†СЏ Р±РµР· РїСЂРёРѕСЂРёС‚РµС‚С–РІ С‡Рё РѕСЃРѕР±Р»РёРІРѕСЃС‚РµР№.
 public:
     Car();
     Car(int vehicleId);
@@ -65,7 +69,7 @@ public:
 };
 
 class Truck : public Vehicle
-{ // Буде іздити лише між домівками та поштовими офісами.
+{ // Р‘СѓРґРµ С–Р·РґРёС‚Рё Р»РёС€Рµ РјС–Р¶ РґРѕРјС–РІРєР°РјРё С‚Р° РїРѕС€С‚РѕРІРёРјРё РѕС„С–СЃР°РјРё.
 private:
 
 public:
@@ -79,4 +83,5 @@ private:
 
 public:
     SchoolBus(int vehicleId);
+    SchoolBus(int vehicleId, std::string vehicleType);
 };

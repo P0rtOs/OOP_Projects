@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/OOP_PMC_IASA_GUI"/>
+    <qresource prefix="/sprites">
+        <file>sprites/car_sprite.png</file>
+        <file>sprites/police_sprite.png</file>
+        <file>sprites/van_sprite.png</file>
+    </qresource>
+</RCC>

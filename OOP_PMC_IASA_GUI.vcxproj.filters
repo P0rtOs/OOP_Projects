@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses">
+      <UniqueIdentifier>{63d3eeba-6cbf-4b5b-b25b-c2d9a9aba45b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses">
+      <UniqueIdentifier>{91f8e0d3-9a80-442c-9b0e-6195289afe54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ControllerClasses">
+      <UniqueIdentifier>{607fd19a-e40c-4a5d-840a-9e339daa565c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\MainWindowClass">
+      <UniqueIdentifier>{8ebdbfc1-864b-4a9f-aa02-346e2e4aa792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\managerClass">
+      <UniqueIdentifier>{37aaa3bd-37fb-402c-9069-ea8d91b526f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\connectionClass">
+      <UniqueIdentifier>{61c1349f-4ca5-4db7-8dcd-f9748d0c10df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\fileManagerClass">
+      <UniqueIdentifier>{4b019d07-167c-48b1-ab48-c169159ac3c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\globalObjects">
+      <UniqueIdentifier>{7a715bce-d7da-4753-b59d-41bd2bc7516d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\movementStrategyClass">
+      <UniqueIdentifier>{8dfe9483-4a90-476c-b888-8542b5abc054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\pointClass">
+      <UniqueIdentifier>{0c82957d-bea5-4c21-92d2-cb874839ac1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\pointManagerClass">
+      <UniqueIdentifier>{0503610f-0106-4021-bc3f-0b34898716a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\pointFactoryClass">
+      <UniqueIdentifier>{605ffb6e-4959-4940-bc86-4b3798dc5561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\vehicleManagerClass">
+      <UniqueIdentifier>{203b4d47-f6fa-4fcc-a820-b131b3cf35c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\vehicleClass">
+      <UniqueIdentifier>{d371842d-a7d2-45e4-a6a7-d5798c387678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\vehicleFactoryClass">
+      <UniqueIdentifier>{7465aa20-ee58-4172-bb2c-8974ef0ab22c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\tickerClass">
+      <UniqueIdentifier>{8eb2e8ab-57dd-4b03-baec-9d93865ed266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ControllerClasses\SimulationControllerClass">
+      <UniqueIdentifier>{dd40619b-085c-4246-bb56-6f93d2e117ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\PointItem">
+      <UniqueIdentifier>{2b1e67c8-21c4-46d3-990c-60a192ff1b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\Sidebar">
+      <UniqueIdentifier>{873a5c6e-9bf1-4e2d-858a-81023a1e6c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\Workspace">
+      <UniqueIdentifier>{fb315e89-460d-4cf4-888b-a793fdb9b80b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\RoadItem">
+      <UniqueIdentifier>{d4ce5e67-77ba-45e2-90d3-6713e4e949f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\CarItem">
+      <UniqueIdentifier>{44dc18b0-5bec-46e9-a041-607133fc24da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ModelClasses\pointTypeClass">
+      <UniqueIdentifier>{b3586184-e509-4fd7-8f7d-63190bb851d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\PointPropertiesDialogClass">
+      <UniqueIdentifier>{5b2def33-9c14-456a-8c54-ffed25aabd1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\CarPropertiesDialogClass">
+      <UniqueIdentifier>{b31faeb4-365c-4a90-84c4-8a7aa6ebd79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\PointCreationDialogClass">
+      <UniqueIdentifier>{646913ca-739d-4638-b75c-1e4e3c903729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewClasses\CarCreationDialogClass">
+      <UniqueIdentifier>{51fa1467-57bf-4144-8097-17ddca72c31b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="OOP_PMC_IASA_GUI.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="OOP_PMC_IASA_GUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OOP_PMC_IASA_GUI.cpp">
+      <Filter>Source Files\ViewClasses\MainWindowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace.cpp">
+      <Filter>Source Files\ViewClasses\Workspace</Filter>
+    </ClCompile>
+    <ClCompile Include="Sidebar.cpp">
+      <Filter>Source Files\ViewClasses\Sidebar</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadItem.cpp">
+      <Filter>Source Files\ViewClasses\RoadItem</Filter>
+    </ClCompile>
+    <ClCompile Include="CarItem.cpp">
+      <Filter>Source Files\ViewClasses\CarItem</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationController.cpp">
+      <Filter>Source Files\ControllerClasses\SimulationControllerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files\ModelClasses\managerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionClass.cpp">
+      <Filter>Source Files\ModelClasses\connectionClass</Filter>
+    </ClCompile>
+    <ClCompile Include="fileManagerClass.cpp">
+      <Filter>Source Files\ModelClasses\fileManagerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="globalObjects.cpp">
+      <Filter>Source Files\ModelClasses\globalObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="movementStrategyClass.cpp">
+      <Filter>Source Files\ModelClasses\movementStrategyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="tickerClass.cpp">
+      <Filter>Source Files\ModelClasses\tickerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicleFactoryClass.cpp">
+      <Filter>Source Files\ModelClasses\vehicleFactoryClass</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicleClass.cpp">
+      <Filter>Source Files\ModelClasses\vehicleClass</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicleManagerClass.cpp">
+      <Filter>Source Files\ModelClasses\vehicleManagerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="pointFactoryClass.cpp">
+      <Filter>Source Files\ModelClasses\pointFactoryClass</Filter>
+    </ClCompile>
+    <ClCompile Include="pointManagerClass.cpp">
+      <Filter>Source Files\ModelClasses\pointManagerClass</Filter>
+    </ClCompile>
+    <ClCompile Include="pointClass.cpp">
+      <Filter>Source Files\ModelClasses\pointClass</Filter>
+    </ClCompile>
+    <ClCompile Include="pointType.cpp">
+      <Filter>Source Files\ModelClasses\pointTypeClass</Filter>
+    </ClCompile>
+    <ClCompile Include="PointItem.cpp">
+      <Filter>Source Files\ViewClasses\PointItem</Filter>
+    </ClCompile>
+    <ClCompile Include="PointPropertiesDialog.cpp">
+      <Filter>Source Files\ViewClasses\PointPropertiesDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="CarPropertiesDialog.cpp">
+      <Filter>Source Files\ViewClasses\CarPropertiesDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="PointCreationDialog.cpp">
+      <Filter>Source Files\ViewClasses\PointCreationDialogClass</Filter>
+    </ClCompile>
+    <ClCompile Include="CarCreationDialog.cpp">
+      <Filter>Source Files\ViewClasses\CarCreationDialogClass</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="OOP_PMC_IASA_GUI.h">
+      <Filter>Source Files\ViewClasses\MainWindowClass</Filter>
+    </QtMoc>
+    <QtMoc Include="Workspace.h">
+      <Filter>Source Files\ViewClasses\Workspace</Filter>
+    </QtMoc>
+    <QtMoc Include="Sidebar.h">
+      <Filter>Source Files\ViewClasses\Sidebar</Filter>
+    </QtMoc>
+    <QtMoc Include="SimulationController.h">
+      <Filter>Source Files\ControllerClasses\SimulationControllerClass</Filter>
+    </QtMoc>
+    <QtMoc Include="Manager.h">
+      <Filter>Source Files\ModelClasses\managerClass</Filter>
+    </QtMoc>
+    <QtMoc Include="PointItem.h">
+      <Filter>Source Files\ViewClasses\PointItem</Filter>
+    </QtMoc>
+    <QtMoc Include="PointPropertiesDialog.h">
+      <Filter>Source Files\ViewClasses\PointPropertiesDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="CarPropertiesDialog.h">
+      <Filter>Source Files\ViewClasses\CarPropertiesDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="PointCreationDialog.h">
+      <Filter>Source Files\ViewClasses\PointCreationDialogClass</Filter>
+    </QtMoc>
+    <QtMoc Include="CarCreationDialog.h">
+      <Filter>Source Files\ViewClasses\CarCreationDialogClass</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RoadItem.h">
+      <Filter>Source Files\ViewClasses\RoadItem</Filter>
+    </ClInclude>
+    <ClInclude Include="CarItem.h">
+      <Filter>Source Files\ViewClasses\CarItem</Filter>
+    </ClInclude>
+    <ClInclude Include="connectionClass.h">
+      <Filter>Source Files\ModelClasses\connectionClass</Filter>
+    </ClInclude>
+    <ClInclude Include="fileManagerClass.h">
+      <Filter>Source Files\ModelClasses\fileManagerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="globalObjects.h">
+      <Filter>Source Files\ModelClasses\globalObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="movementStrategyClass.h">
+      <Filter>Source Files\ModelClasses\movementStrategyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="tickerClass.h">
+      <Filter>Source Files\ModelClasses\tickerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleFactoryClass.h">
+      <Filter>Source Files\ModelClasses\vehicleFactoryClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleClass.h">
+      <Filter>Source Files\ModelClasses\vehicleClass</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicleManagerClass.h">
+      <Filter>Source Files\ModelClasses\vehicleManagerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="pointFactoryClass.h">
+      <Filter>Source Files\ModelClasses\pointFactoryClass</Filter>
+    </ClInclude>
+    <ClInclude Include="pointManagerClass.h">
+      <Filter>Source Files\ModelClasses\pointManagerClass</Filter>
+    </ClInclude>
+    <ClInclude Include="pointClass.h">
+      <Filter>Source Files\ModelClasses\pointClass</Filter>
+    </ClInclude>
+    <ClInclude Include="pointType.h">
+      <Filter>Source Files\ModelClasses\pointTypeClass</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItemTypes.h">
+      <Filter>Source Files\ViewClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Source Files\ControllerClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

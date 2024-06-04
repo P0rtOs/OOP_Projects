@@ -1,4 +1,4 @@
-#include "pointClass.h"
+﻿#include "pointClass.h"
 
 #include "globalObjects.h"
 
@@ -6,10 +6,10 @@
 
 using std::vector;
 
-Point::Point() : pointId(-1)  {
+Point::Point() : pointId(-1) {
 	neighbors = std::vector<std::unique_ptr<Connection>>(); // Proper initialization
 	std::cout << "Point created using default constuctor. This is probably a bug. Possibly. Definitely.\n";
-	
+
 }
 
 Point::Point(int pointId, double pointX, double pointY) {
@@ -125,6 +125,16 @@ void Point::addNeighbor(int neighborId, int ticks, double weightLimit) {
 	}
 }
 
+void Point::removeNeighbor(int neighborId)
+{
+	auto it = std::remove_if(neighbors.begin(), neighbors.end(),
+		[neighborId](const std::unique_ptr<Connection>& conn) { return conn->getNeighborId() == neighborId; });
+	if (it != neighbors.end()) {
+		neighbors.erase(it, neighbors.end());
+	}
+}
+
+
 void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
 	neighbors.clear();
 	for (const auto* conn : connectionsToSet) {
@@ -135,7 +145,7 @@ void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
 std::vector<Connection*> Point::getNeighbors() {
 	std::vector<Connection*> rawPointers;
 	for (const auto& neighbor : neighbors) {
-		rawPointers.push_back(neighbor.get());  // get() returns the raw pointer
+		rawPointers.push_back(neighbor.get());
 	}
 	return rawPointers;
 }
