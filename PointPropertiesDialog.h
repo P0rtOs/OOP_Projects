@@ -17,18 +17,8 @@ public:
 signals:
     void connectionDeletionRequested(int startPointId, int endPointId);
 
-private slots:
-    //void handleDeleteConnection(int connectionId);
-
 private:
-    //QLabel* idLabel;
-    //QLabel* xLabel;
-    //QLabel* yLabel;
-    //QLabel* typeLabel;  // New label for point type
-
     QTableWidget* connectionsTable;
-
-    //void setupUi(PointItem* pointItem, Point* point);
 
     PointItem* pointItem;
     Point* point;

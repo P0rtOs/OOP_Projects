@@ -1,9 +1,10 @@
 #pragma once
 
+#include <QLabel>
 #include <QWidget>
 
 
-
+class QSlider;
 class QPushButton;
 class QVBoxLayout;
 
@@ -20,6 +21,7 @@ signals:
     void createConnectionClicked();
     void startSimulationClicked();
     void stopSimulationClicked();
+    void simulationSpeedChanged(int speed);
 
 
 private:
@@ -29,6 +31,8 @@ private:
     QPushButton* createConnectionButton;
     QPushButton* startSimulationButton;
     QPushButton* stopSimulationButton;
+    QSlider* simulationSpeedSlider;
+    QLabel* simulationSpeedLabel;
 
     void setupUI();
 };

@@ -18,8 +18,6 @@ public:
 public slots:
 	void startSimulation();
 	void stopSimulation();
-	void createPoint();
-	void createVehicle();
 	void handlePointCreationRequest(double x, double y, PointType pointType, const std::vector<int>& connections);
 	void handleCarCreationRequest(int pointId, const std::string& carType); // Updated signature
 	void handlePointPositionChanged(int id, const QPointF& newPos);
@@ -27,6 +25,7 @@ public slots:
 	void handleCarDeletionRequest(int carId);
 	void handleConnectionDeletion(int startPointId, int endPointId); // New slot
 	void handleApplicationExit();
+	void setSimulationSpeed(int speed); // New slot for simulation speed
 
 	
 
@@ -40,6 +39,8 @@ private:
 	Manager manager;
 	Workspace* workspace;
 	Sidebar* sidebar;
+
+	QTimer* timer; // Change timer to a member variable
 
 	void updateSimulation();
 	void updateCarItems(); // New method to update car items

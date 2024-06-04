@@ -77,10 +77,6 @@ std::vector<Point*> MovementStrategy::dijkstraShortestPath(int sourceId, int tar
 
 StandartCarMovingStrategy::StandartCarMovingStrategy() {}
 
-//void StandartCarMovingStrategy::move(Vehicle& vehicle) {
-//	std::cout << "Moving car" << std::endl;
-//
-//}
 
 std::string StandartCarMovingStrategy::returnStrategyType() {
     return "StandartCar";

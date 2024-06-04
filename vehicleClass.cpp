@@ -100,41 +100,6 @@ std::string Vehicle::currentStatus() {
 	return locationInfo;
 }
 
-//void Vehicle::update() {
-//	if (!path.empty() && currentPathIndex < path.size()) {
-//		if (currentState == AT_POINT) {
-//			if (canDepartFromPoint()) {
-//				moveToNextPointOnPath();
-//			}
-//		}
-//		else if (currentState == ON_ROAD) {
-//			--ticksRemaining;
-//			if (ticksRemaining <= 0) {
-//				currentState = AT_POINT;
-//				onArrivalToPoint();
-//			}
-//		}
-//	}
-//	else if (path.empty()) {
-//		if (movementStrategy != nullptr) {
-//			Point* destination = movementStrategy->returnRandomDestination(this->getCurrentPointId());
-//			if (destination != nullptr) {
-//				movementStrategy->dijkstraShortestPath(this->getCurrentPointId(), destination->getPointId(), *this);
-//			}
-//		}
-//		else {
-//			std::cerr << "Error: movementStrategy is null.\n";
-//		}
-//	}
-//	else {
-//		if (currentState == ON_ROAD && !globalPointManager.getPoint(currentRoad->getNeighborId())) {
-//			path.clear();
-//			currentState = AT_POINT;
-//			currentRoad = nullptr;
-//		}
-//	}
-//	ticksAtCurrentPoint++;
-//}
 
 void Vehicle::update() {
 	if (!path.empty() && currentPathIndex < path.size()) {

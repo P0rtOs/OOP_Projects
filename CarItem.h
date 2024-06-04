@@ -14,7 +14,7 @@ public:
 
     int getId() const;
     void updatePosition();
-    QRectF boundingRect() const override;  // Override the boundingRect method
+    QRectF boundingRect() const override; 
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
     int type() const override { return CarItemType; }
@@ -22,7 +22,7 @@ public:
 private:
     int id;
     Vehicle* vehicle;
-    QPixmap carSprite;  // Sprite for the car
+    QPixmap carSprite;
 
-    void loadSprite();  // New method to load the appropriate sprite
+    void loadSprite();
 };

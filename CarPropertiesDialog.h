@@ -15,7 +15,7 @@ public:
     CarPropertiesDialog(CarItem* carItem, Vehicle* vehicle, QWidget* parent = nullptr);
 
 public slots:
-    void updateCarProperties();  // Slot for updating car properties
+    void updateCarProperties();
 
 private:
     QLabel* idLabel;

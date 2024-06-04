@@ -40,6 +40,37 @@ CarPropertiesDialog::CarPropertiesDialog(CarItem* carItem, Vehicle* vehicle, QWi
     setWindowTitle("Car Properties");
 
     updateCarProperties();  // Initial update
+
+    // Apply styles
+    QString dialogStyle = "QDialog {"
+        "background-color: #ecf0f1;"
+        "border-radius: 10px;"
+        "}";
+
+    QString labelStyle = "QLabel {"
+        "font-size: 14px;"
+        "color: #2c3e50;"
+        "font-weight: bold;"
+        "}";
+
+    QString tableStyle = "QTableWidget {"
+        "background-color: #ffffff;"
+        "border: 1px solid #bdc3c7;"
+        "border-radius: 5px;"
+        "}"
+        "QHeaderView::section {"
+        "background-color: #bdc3c7;"
+        "border: none;"
+        "padding: 5px;"
+        "}";
+
+    this->setStyleSheet(dialogStyle);
+    idLabel->setStyleSheet(labelStyle);
+    typeLabel->setStyleSheet(labelStyle);
+    currentPointLabel->setStyleSheet(labelStyle);
+    locationStateLabel->setStyleSheet(labelStyle);
+    roadTargetLabel->setStyleSheet(labelStyle);
+    pathTable->setStyleSheet(tableStyle);
 }
 
 void CarPropertiesDialog::updateCarProperties()

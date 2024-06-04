@@ -47,10 +47,10 @@ void CarItem::updatePosition()
             double dx = nextPoint->getPointX() - currentPoint->getPointX();
             double dy = nextPoint->getPointY() - currentPoint->getPointY();
             double angle = qRadiansToDegrees(qAtan2(dy, dx));
-            setRotation(angle + 90);  // Subtract 90 to align the sprite's front with the direction of movement
+            setRotation(angle + 90);  // Add 90 degrees to align the sprite's front with the direction of movement
 
             // Apply offset to the right
-            double offset = 15.0;  // Adjust this value as needed
+            double offset = 15.0;
             double offsetX = -offset * qSin(qDegreesToRadians(angle));
             double offsetY = offset * qCos(qDegreesToRadians(angle));
             setPos(newX + offsetX, newY + offsetY);
@@ -66,6 +66,9 @@ void CarItem::loadSprite()
     }
     else if (vehicle->getVehicleType() == "Truck") {
         carSprite = QPixmap("./sprites/van_sprite.png");
+    }
+    else if (vehicle->getVehicleType() == "SchoolBus") {
+        carSprite = QPixmap("./sprites/school_sprite.png");
     }
     else {
         carSprite = QPixmap("./sprites/car_sprite.png");

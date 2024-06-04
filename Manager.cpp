@@ -8,19 +8,18 @@ void Manager::run()
     running = true;
     while (running) {
         ticker.tick();
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        std::this_thread::sleep_for(std::chrono::milliseconds(interval));
     }
 }
 
 void Manager::startSimulation()
 {
     if (!isRunning()) {
-        // Register vehicles as observers
         for (auto& vehicle : globalVehicleManager.getVehicles()) {
             ticker.registerObserver(vehicle);
         }
 
-        start();  // Start the thread if not already running
+        start();
     }
 }
 
@@ -41,4 +40,9 @@ void Manager::endSimulation()
 Ticker& Manager::getTicker()
 {
     return ticker;
+}
+
+void Manager::setSimulationSpeed(int speed)
+{
+    interval = 1000 / speed;
 }

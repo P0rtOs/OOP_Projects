@@ -4,7 +4,7 @@
 VehicleManager::~VehicleManager() {
     std::cout << "Deleting VehicleManager instance.\n";
     for (Vehicle* vehicle : vehicles) {
-        delete vehicle;  // Delete each dynamically allocated Vehicle
+        delete vehicle;
     }
     vehicles.clear();
 }
@@ -16,8 +16,8 @@ void VehicleManager::addVehicle(Vehicle* vehicle) {
 void VehicleManager::removeVehicle(Vehicle* vehicle) {
     auto it = std::find(vehicles.begin(), vehicles.end(), vehicle);
     if (it != vehicles.end()) {
-        vehicles.erase(it); // First erase from the vector
-        delete vehicle; // Then delete the vehicle
+        vehicles.erase(it);
+        delete vehicle;
     }
 }
 
@@ -27,7 +27,7 @@ Vehicle* VehicleManager::getVehicle(int id) {
             return vehicle;
         }
     }
-    return nullptr;  // Return nullptr if no vehicle with the given ID is found
+    return nullptr;
 }
 
 std::vector<Vehicle*>& VehicleManager::getVehicles() {

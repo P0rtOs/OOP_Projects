@@ -4,6 +4,7 @@
 #include "ui_OOP_PMC_IASA_GUI.h"
 
 
+class CustomTitleBar;
 class Sidebar;
 class Workspace;
 
@@ -20,4 +21,5 @@ private:
     Workspace* workspace;
     Sidebar* sidebar;
     Ui::OOP_PMC_IASA_GUIClass ui;
+    CustomTitleBar* titleBar;
 };

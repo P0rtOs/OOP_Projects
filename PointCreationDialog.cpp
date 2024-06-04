@@ -65,6 +65,54 @@ void PointCreationDialog::setupUi(int pointId, double x, double y, const std::ve
 
     setLayout(mainLayout);
     setWindowTitle("Create Point");
+
+    // Apply styles
+    QString dialogStyle = "QDialog {"
+        "background-color: #ecf0f1;"
+        "border-radius: 10px;"
+        "}";
+
+    QString labelStyle = "QLabel {"
+        "font-size: 14px;"
+        "color: #2c3e50;"
+        "font-weight: bold;"
+        "}";
+
+    QString comboBoxStyle = "QComboBox {"
+        "border: 1px solid #bdc3c7;"
+        "border-radius: 5px;"
+        "padding: 5px;"
+        "background-color: #ffffff;"
+        "}";
+
+    QString tableStyle = "QTableWidget {"
+        "border: 1px solid #bdc3c7;"
+        "border-radius: 5px;"
+        "background-color: #ffffff;"
+        "}"
+        "QHeaderView::section {"
+        "background-color: #bdc3c7;"
+        "border: 1px solid #bdc3c7;"
+        "}";
+
+    QString buttonStyle = "QPushButton {"
+        "font-size: 14px;"
+        "padding: 10px;"
+        "border-radius: 5px;"
+        "background-color: #3498db;"
+        "color: white;"
+        "}"
+        "QPushButton:pressed {"
+        "background-color: #2980b9;"
+        "}";
+
+    this->setStyleSheet(dialogStyle);
+    idLabel->setStyleSheet(labelStyle);
+    coordLabel->setStyleSheet(labelStyle);
+    typeComboBox->setStyleSheet(comboBoxStyle);
+    connectionsTable->setStyleSheet(tableStyle);
+    createButton->setStyleSheet(buttonStyle);
+    cancelButton->setStyleSheet(buttonStyle);
 }
 
 PointType PointCreationDialog::getSelectedPointType() const

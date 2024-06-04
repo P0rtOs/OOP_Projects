@@ -28,6 +28,7 @@ Workspace::Workspace(QWidget* parent)
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
 
     connect(this, &Workspace::roadViewCreationRequested, this, &Workspace::addRoadView);
+    connect(this, &Workspace::simulationUpdated, this, &Workspace::redrawScene); // Connect the signal to the slot
 
     // Load the background image
     backgroundImage = QPixmap("./sprites/background2.jpg");
@@ -122,6 +123,12 @@ void Workspace::updateSimulation()
 {
     // This function will be called to update the simulation and emit the simulationUpdated signal
     emit simulationUpdated();
+}
+
+void Workspace::redrawScene()
+{
+    // Trigger a full scene redraw
+    scene->update();
 }
 
 void Workspace::openCarCreationDialog(int pointId)

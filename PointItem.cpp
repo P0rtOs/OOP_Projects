@@ -56,17 +56,32 @@ void PointItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option,
 void PointItem::loadSprite()
 {
     QPixmap originalPixmap;
-    if (pointType == PointType::PostOffice || pointType == PointType::School) {
-        originalPixmap = QPixmap("./sprites/city1.png");
+    if (pointType == PointType::School) {
+        originalPixmap = QPixmap("./sprites/school.png");
     }
-    else if (pointType == PointType::House || pointType == PointType::Hospital) {
+    else if (pointType == PointType::Hospital) {
         originalPixmap = QPixmap("./sprites/city2.png");
     }
     else if (pointType == PointType::PoliceStation) {
-        originalPixmap = QPixmap("./sprites/city3.png");
+        originalPixmap = QPixmap("./sprites/police.png");
+    }
+    else if (pointType == PointType::PostOffice) {
+        originalPixmap = QPixmap("./sprites/post_office.png");
+    }
+    else if (pointType == PointType::House) {
+        int randomNum = rand() % 2;
+        switch (randomNum)
+        {
+        case 0:
+            originalPixmap = QPixmap("./sprites/city1.png");
+            break;
+        case 1:
+            originalPixmap = QPixmap("./sprites/city3.png");
+            break;
+        }
     }
     else {
-        originalPixmap = QPixmap("./sprites/city1.png");  // Default sprite
+        originalPixmap = QPixmap("./sprites/city1.png");  // Default
     }
 
     if (!originalPixmap.isNull()) {
@@ -87,5 +102,4 @@ QVariant PointItem::itemChange(GraphicsItemChange change, const QVariant& value)
 void PointItem::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
     QGraphicsItem::mousePressEvent(event);
-    // Custom behavior on mouse press, if needed
 }

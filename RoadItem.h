@@ -14,8 +14,8 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-    int type() const override { return RoadItemType; } // Override the type() method
-    void updatePosition(); // Method to update position
+    int type() const override { return RoadItemType; }
+    void updatePosition();
 
 private:
     PointItem* startPoint;

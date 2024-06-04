@@ -16,10 +16,12 @@ public:
     void run() override;
     void startSimulation();
     void endSimulation();
-    Ticker& getTicker();  // New method to get the Ticker reference
+    Ticker& getTicker();
+    void setSimulationSpeed(int speed);
 
 private:
     Ticker ticker;
     readingFiles readingInterface;
     bool running = false;
+    int interval = 50;
 };

@@ -9,33 +9,28 @@
 #include "utility.h"
 
 SimulationController::SimulationController(Workspace* workspace, Sidebar* sidebar, QObject* parent)
-    : QObject(parent), workspace(workspace), sidebar(sidebar)
+    : QObject(parent), workspace(workspace), sidebar(sidebar), timer(new QTimer(this))
 {
-    connect(sidebar, &Sidebar::createPointClicked, this, &SimulationController::createPoint);
-    connect(sidebar, &Sidebar::createVehicleClicked, this, &SimulationController::createVehicle);
-    //connect(sidebar, &Sidebar::createConnectionClicked, this, &SimulationController::handleCreateConnection);
+
     connect(sidebar, &Sidebar::startSimulationClicked, this, &SimulationController::startSimulation);
     connect(sidebar, &Sidebar::stopSimulationClicked, this, &SimulationController::stopSimulation);
+    connect(sidebar, &Sidebar::simulationSpeedChanged, this, &SimulationController::setSimulationSpeed); // Connect the slider signal
 
-    QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &SimulationController::updateSimulation);
     timer->start(25); // Update every 0.1 seconds
 
     connect(workspace, &Workspace::pointPositionChanged, this, &SimulationController::handlePointPositionChanged);
     connect(workspace, &Workspace::pointCreationRequested, this, &SimulationController::handlePointCreationRequest);
-    connect(workspace, &Workspace::carCreationRequested, this, &SimulationController::handleCarCreationRequest);  // New connection
-    //connect(workspace, &Workspace::roadViewCreationRequested, this, &SimulationController::handleCreateConnection);
-    connect(workspace, &Workspace::pointDeletionRequested, this, &SimulationController::handlePointDeletionRequest);  // Connect point deletion signal
+    connect(workspace, &Workspace::carCreationRequested, this, &SimulationController::handleCarCreationRequest);  
+    connect(workspace, &Workspace::pointDeletionRequested, this, &SimulationController::handlePointDeletionRequest);
     connect(this, &SimulationController::connectionCreatedInView, workspace, &Workspace::addRoadView);
     connect(this, &SimulationController::connectionDeletedInView, workspace, &Workspace::removeRoadView);
-    connect(workspace, &Workspace::carDeletionRequested, this, &SimulationController::handleCarDeletionRequest);  // Connect car deletion signal
+    connect(workspace, &Workspace::carDeletionRequested, this, &SimulationController::handleCarDeletionRequest); 
     connect(this, &SimulationController::carDeletionRequested, workspace, &Workspace::removeCarItem);
-    connect(this, &SimulationController::simulationUpdated, workspace, &Workspace::updateSimulation);  // Connect car deletion signal
+    connect(this, &SimulationController::simulationUpdated, workspace, &Workspace::updateSimulation);
 
-    // Connect the signal from PointPropertiesDialog to handle connection deletion
     connect(workspace, &Workspace::connectionDeletionRequested, this, &SimulationController::handleConnectionDeletion);
 
-	// Connect the application exit signal to the handleApplicationExit slot
     connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &SimulationController::handleApplicationExit);
 }
 
@@ -51,32 +46,6 @@ void SimulationController::stopSimulation()
     manager.endSimulation();
 }
 
-void SimulationController::createPoint()
-{
-    QPointF scenePos = workspace->mapToScene(workspace->viewport()->rect().center());
-    emit workspace->pointCreationRequested(scenePos.x(), scenePos.y(), PointType::House, {});  // Default type if not using dialog
-}
-
-
-//void SimulationController::handlePointCreationRequest(double x, double y, PointType pointType, const std::vector<int>& connections)
-//{
-//    static int pointId = 0;  // Global point ID counter
-//    int newPointId = pointId++;  // Save the new point ID
-//
-//    auto point = globalPointFactory.createPoint(newPointId, x, y, pointType);
-//    globalPointManager.addPoint(std::move(point));
-//    workspace->addPoint(newPointId, x, y);
-//
-//    for (int connectionId : connections) {
-//        Point* connectionPoint = globalPointManager.getPoint(connectionId);
-//        if (connectionPoint) {
-//            globalPointManager.getPoint(newPointId)->addNeighbor(connectionId, 10, 100.0);  // Example values for ticks and weight limit
-//            //connectionPoint->addNeighbor(newPointId, 10, 100.0);  // Two-way connection
-//
-//            emit connectionCreatedInView(newPointId, connectionId);  // Emit signal for road view creation
-//        }
-//    }
-//}
 
 void SimulationController::handlePointCreationRequest(double x, double y, PointType pointType, const std::vector<int>& connections)
 {
@@ -91,9 +60,8 @@ void SimulationController::handlePointCreationRequest(double x, double y, PointT
         Point* connectionPoint = globalPointManager.getPoint(connectionId);
         if (connectionPoint) {
             double distance = calculateDistance(x, y, connectionPoint->getPointX(), connectionPoint->getPointY());
-            int ticks = static_cast<int>(distance / 10);  // Convert distance to ticks (you can apply any conversion factor as needed)
-            globalPointManager.getPoint(newPointId)->addNeighbor(connectionId, ticks, 100.0);  // Example value for weight limit
-            //connectionPoint->addNeighbor(newPointId, ticks, 100.0);  // Two-way connection
+            int ticks = static_cast<int>(distance / 10);
+            globalPointManager.getPoint(newPointId)->addNeighbor(connectionId, ticks, 100.0);
 
             emit connectionCreatedInView(newPointId, connectionId);  // Emit signal for road view creation
         }
@@ -101,12 +69,6 @@ void SimulationController::handlePointCreationRequest(double x, double y, PointT
 }
 
 
-void SimulationController::createVehicle()
-{
-    // Logic to create a vehicle in the model and update the view
-    /*QPointF scenePos = workspace->mapToScene(workspace->viewport()->rect().center());
-    workspace->createVehicleAtPosition(scenePos);*/
-}
 
 void SimulationController::handleCarCreationRequest(int pointId, const std::string& carType)
 {
@@ -134,6 +96,7 @@ void SimulationController::updateSimulation()
     // This method would update the model and emit the signal to update the view
     updateCarItems();  // Update the car items in the view
     emit simulationUpdated();
+    //workspace->update();
 }
 
 void SimulationController::updateCarItems()
@@ -261,4 +224,22 @@ void SimulationController::handleApplicationExit()
 void SimulationController::setWorkspace(Workspace* workspace)
 {
     this->workspace = workspace;
+}
+
+void SimulationController::setSimulationSpeed(int speed)
+{
+
+    int ticksPerSecond;
+    switch (speed) {
+    case 1: ticksPerSecond = 10; break;  // Slower
+    case 2: ticksPerSecond = 20; break;  // Slow
+    case 3: ticksPerSecond = 40; break;  // Normal
+    case 4: ticksPerSecond = 60; break;  // Fast
+    case 5: ticksPerSecond = 80; break;  // Faster
+    default: ticksPerSecond = 40; break; // Default to Normal
+    }
+
+    int interval = 1000 / ticksPerSecond;
+    timer->setInterval(interval/2);
+    manager.setSimulationSpeed(ticksPerSecond);
 }

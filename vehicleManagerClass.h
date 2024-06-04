@@ -10,6 +10,6 @@ public:
     ~VehicleManager();
     void addVehicle(Vehicle* vehicle);
     void removeVehicle(Vehicle* vehicle);
-    Vehicle* getVehicle(int id);  // New method
+    Vehicle* getVehicle(int id);
     std::vector<Vehicle*>& getVehicles();
 };

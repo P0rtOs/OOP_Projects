@@ -145,7 +145,7 @@ void Point::setNeighbor(std::vector<Connection*> connectionsToSet) {
 std::vector<Connection*> Point::getNeighbors() {
 	std::vector<Connection*> rawPointers;
 	for (const auto& neighbor : neighbors) {
-		rawPointers.push_back(neighbor.get());  // get() returns the raw pointer
+		rawPointers.push_back(neighbor.get());
 	}
 	return rawPointers;
 }

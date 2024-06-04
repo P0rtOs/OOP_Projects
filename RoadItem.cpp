@@ -14,7 +14,6 @@ QRectF RoadItem::boundingRect() const
 
 void RoadItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
-    // Calculate the offset for the road to start from the bottom part of the point sprite
     QPointF startPointOffset = startPoint->pos() + QPointF(0, startPoint->boundingRect().height() / 2);
     QPointF endPointOffset = endPoint->pos() + QPointF(0, endPoint->boundingRect().height() / 2);
 
@@ -36,11 +35,6 @@ void RoadItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, 
     QLineF normal = line.normalVector().unitVector();
     normal.setLength(30);  // Half the width of the road
 
-    /*QLineF leftBorder = line.translated(normal.dx(), normal.dy());
-    QLineF rightBorder = line.translated(-normal.dx(), -normal.dy());
-
-    painter->drawLine(leftBorder.p1(), leftBorder.p2());
-    painter->drawLine(rightBorder.p1(), rightBorder.p2());*/
 }
 
 void RoadItem::updatePosition()

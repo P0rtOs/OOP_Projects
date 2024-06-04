@@ -34,6 +34,44 @@ void CarCreationDialog::setupUi(int carId, int pointId)
 
     setLayout(mainLayout);
     setWindowTitle("Create Car");
+
+    // Apply styles
+    QString dialogStyle = "QDialog {"
+        "background-color: #ecf0f1;"
+        "border-radius: 10px;"
+        "}";
+
+    QString labelStyle = "QLabel {"
+        "font-size: 14px;"
+        "color: #2c3e50;"
+        "font-weight: bold;"
+        "}";
+
+    QString comboBoxStyle = "QComboBox {"
+        "font-size: 14px;"
+        "padding: 5px;"
+        "border-radius: 5px;"
+        "background-color: #ffffff;"
+        "border: 1px solid #bdc3c7;"
+        "}";
+
+    QString buttonStyle = "QPushButton {"
+        "font-size: 14px;"
+        "padding: 5px 10px;"
+        "border-radius: 5px;"
+        "background-color: #3498db;"
+        "color: white;"
+        "}"
+        "QPushButton:pressed {"
+        "background-color: #2980b9;"
+        "}";
+
+    this->setStyleSheet(dialogStyle);
+    idLabel->setStyleSheet(labelStyle);
+    pointLabel->setStyleSheet(labelStyle);
+    typeComboBox->setStyleSheet(comboBoxStyle);
+    createButton->setStyleSheet(buttonStyle);
+    cancelButton->setStyleSheet(buttonStyle);
 }
 
 std::string CarCreationDialog::getSelectedCarType() const

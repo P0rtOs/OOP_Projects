@@ -3,7 +3,6 @@
 
 
 void handlePointCreation(int id, int x, int y, const std::vector<int>& neighborIds, const std::vector<int>& ticks, const std::vector<int>& weights) {
-    // Prepare connections
     std::vector<std::unique_ptr<Connection>> connections;
     for (size_t i = 0; i < neighborIds.size(); ++i) {
         connections.emplace_back(std::make_unique<Connection>(neighborIds[i], ticks[i], weights[i]));
